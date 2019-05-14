@@ -12,7 +12,7 @@ namespace EnduriumMod.Items
     {
         public override void SetDefaults()
         {
-
+            
             item.width = 50;
             item.height = 57;
             item.maxStack = 99;
