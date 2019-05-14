@@ -68,23 +68,23 @@ namespace EnduriumMod.NPCs.TownNPCs
                 case 0:
                     return "Gabe";
                 case 1:
-                    return "Jack";
+                    return "Alex";
                 case 2:
-                    return "Dan";
+                    return "Eian";
                 case 3:
-                    return "Isaac";
+                    return "Gavin";
                 case 4:
-                    return "Ivan";
+                    return "Zur";
                 case 5:
                     return "Vincent";
 					                case 6:
-                    return "Rajef";
+                    return "Ben";
 					                case 7:
-                    return "Xavier";
+                    return "Jackson";
 					                case 8:
                     return "Zach";
 					                case 9:
-                    return "Gabe";
+                    return "Riley";
                 default:
                     return "Dan";
             }
@@ -107,31 +107,31 @@ namespace EnduriumMod.NPCs.TownNPCs
         {
             shop.item[nextSlot].SetDefaults(mod.ItemType("IronCross"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(5);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("OblivionMirror"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(50);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("TempleBadge"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(50);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("BlessedClaymore"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(50);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("HolyLight"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(50);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("CursedKnive"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(25);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("SoulForge"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(150);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
 
             shop.item[nextSlot].SetDefaults(ItemID.WormholePotion);
