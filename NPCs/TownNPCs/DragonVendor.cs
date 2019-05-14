@@ -69,11 +69,11 @@ namespace EnduriumMod.NPCs.TownNPCs
                 case 0:
                     return "Casey";
                 case 1:
-                    return "Zekrom";
+                    return "Smaug";
                 case 2:
                     return "Sam";
                 case 3:
-                    return "Lizard";
+                    return "Julian";
                 default:
                     return "Gavon";
             }
