@@ -66,7 +66,7 @@ namespace EnduriumMod.NPCs.TownNPCs
             switch (WorldGen.genRand.Next(10))
             {
                 case 0:
-                    return "Gabe";
+                    return "Zander";
                 case 1:
                     return "Alex";
                 case 2:
