@@ -69,33 +69,13 @@ namespace EnduriumMod.NPCs.TownNPCs
                 case 0:
                     return "Casey";
                 case 1:
-                    return "Darwin";
+                    return "Smaug";
                 case 2:
-                    return "Mark";
+                    return "Sam";
                 case 3:
-                    return "Vincent";
-                case 4:
-                    return "James";
-                case 5:
-                    return "Adam";
-                case 6:
-                    return "Lincoln";
-                case 7:
-                    return "Jack";
-                case 8:
-                    return "Jacob";
-                case 9:
-                    return "Neil";
-                case 10:
-                    return "Mark";
-                case 11:
-                    return "Dan";
-                case 12:
-                    return "Paul";
-                case 13:
-                    return "Philip";
+                    return "Julian";
                 default:
-                    return "Davon";
+                    return "Gavon";
             }
         }
 
@@ -147,35 +127,35 @@ namespace EnduriumMod.NPCs.TownNPCs
             {
                 shop.item[nextSlot].SetDefaults(mod.ItemType("AltarofFire"));      //this defines what item to sell .
                 shop.item[nextSlot].shopCustomPrice = new int?(5);  //this is the custom price, so this item will cost 20 custom Currency
-                shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency             
+                shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
                 nextSlot++;
             }
             if (Main.bloodMoon)
             {
                 shop.item[nextSlot].SetDefaults(mod.ItemType("Artifact"));      //this defines what item to sell .
                 shop.item[nextSlot].shopCustomPrice = new int?(10);  //this is the custom price, so this item will cost 20 custom Currency
-                shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency             
+                shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
                 nextSlot++;
             }
             shop.item[nextSlot].SetDefaults(mod.ItemType("DragonCataclysm"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(25);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("DragonDualshot"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(25);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("DragonFlameblast"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(25);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("DragonGreatblade"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(25);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("TheDragun"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(25);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency             
+            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.SoulGemID;  //this make so to use the CustomCurrency Â  Â  Â  Â  Â  Â  
             nextSlot++;
         }
         public override string GetChat()
