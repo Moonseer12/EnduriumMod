@@ -9,7 +9,7 @@ namespace EnduriumMod.Items.Weapons.Acid
         public override void SetDefaults()
         {
 
-            item.damage = 74;
+            item.damage = 94;
             item.magic = true;
             item.mana = 8;
             item.width = 50;
