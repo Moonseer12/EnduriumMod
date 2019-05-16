@@ -25,7 +25,7 @@ namespace EnduriumMod.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nuclear Plating");
-            Tooltip.SetDefault("Grants immunity to Cursed Inferno, Slow and the Acid Plague debuffs\nGetting hit releases acid");
+            Tooltip.SetDefault("Grants immunity to Cursed Inferno, Slow and the Acid Plague\nGetting hit releases acid");
         }
 
         public override void AddRecipes()
