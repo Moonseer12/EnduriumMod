@@ -17,7 +17,7 @@ namespace EnduriumMod.Items
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Angel Feather");
-            Tooltip.SetDefault("'A rare form of wing material'");
+            Tooltip.SetDefault("'A rare form of material'");
         }
     }
 }
