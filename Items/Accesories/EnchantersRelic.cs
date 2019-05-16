@@ -24,7 +24,7 @@ namespace EnduriumMod.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Relic of Enchantment");
-            Tooltip.SetDefault("'Your soul is sealed within'\nIncreases damage by 18% at a cost of vitality");
+            Tooltip.SetDefault("'Your soul is sealed within'\nIncreases damage by 18% at the cost of vitality");
         }
 
         public override void AddRecipes()
