@@ -25,7 +25,7 @@ namespace EnduriumMod.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Core of the Forest Tyrant");
-            Tooltip.SetDefault("Attacks inflict Reaper Nature\nCritical strikes imbue you with spirit energy\nSummons two earthen crystals to protect you\nIncreases all stats\nThe rage of the tyrant is released upon getting hit\nTaking lethal damage will instead bring you back to 200 health as if nothing happened\nThis effect has a cooldown of 2 minutes, during that time life regeneration is slightly lowered");
+            Tooltip.SetDefault("Attacks inflict Reaper Nature\nCritical strikes imbue you with spirit energy\nSummons two earthen crystals to protect you\nIncreases all stats\nThe rage of the tyrant is released upon getting hit\nTaking lethal damage will instead bring you back to 200\nThis effect has a cooldown of 2 minutes, during that time life regeneration is slightly lowered");
         }
 
 		/*public override void AddRecipes()
