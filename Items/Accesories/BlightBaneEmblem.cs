@@ -24,7 +24,7 @@ namespace EnduriumMod.Items.Accesories
 
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Increases damage resistance by 14% and damage by 10%\nGetting struck releases cursed inferno into the air\nIncreases life regeneration");
+            Tooltip.SetDefault("Increases damage resistance by 14% and damage by 10%\nGetting struck releases cursed inferno\nIncreases life regeneration");
         }
         public override void AddRecipes()
         {
