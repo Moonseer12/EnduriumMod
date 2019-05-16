@@ -26,7 +26,7 @@ namespace EnduriumMod.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Element Booster");
-            Tooltip.SetDefault("Allows flight\nYou leave a trail of energy behind");
+            Tooltip.SetDefault("Allows flight\nYou leave a trail of energy in your wake");
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
