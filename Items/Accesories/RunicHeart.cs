@@ -24,7 +24,7 @@ namespace EnduriumMod.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Runic Heart");
-            Tooltip.SetDefault("Increases health and damage\nIf below 75% health increases all damage types by 15%");
+            Tooltip.SetDefault("Increases health and damage\nDamage increased by 15% if under 75% health");
         }
 
         public override void AddRecipes()
