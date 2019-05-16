@@ -24,7 +24,7 @@ namespace EnduriumMod.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nature Sigil");
-            Tooltip.SetDefault("Regenerates and increases health\nGetting hit has a 33% chance to boost your life regeneration for a short while.");
+            Tooltip.SetDefault("Regenerates and increases health\nGetting hit has a 33% chance to boost your life regeneration for a short time.");
         }
 
 
