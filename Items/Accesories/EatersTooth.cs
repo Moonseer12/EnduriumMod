@@ -24,7 +24,7 @@ namespace EnduriumMod.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Eater's Tooth");
-            Tooltip.SetDefault("Getting struck releases cursed inferno into the air");
+            Tooltip.SetDefault("Getting struck releases cursed inferno");
         }
 
 
