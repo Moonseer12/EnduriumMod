@@ -24,7 +24,7 @@ namespace EnduriumMod.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sigil of Chaos");
-            Tooltip.SetDefault("Critical strikes deal tripple damage");
+            Tooltip.SetDefault("Critical strikes deal triple damage");
         }
         public override void AddRecipes()
         {

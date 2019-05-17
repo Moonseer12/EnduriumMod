@@ -24,7 +24,7 @@ namespace EnduriumMod.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Miner's Gauntlet");
-            Tooltip.SetDefault("Provides nessesary skills for a miner");
+            Tooltip.SetDefault("Provides the necessary skils for a miner");
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)  //this is so when the item is equipped will give this stats to the player

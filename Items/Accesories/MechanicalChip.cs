@@ -25,7 +25,7 @@ namespace EnduriumMod.Items.Accesories
     public override void SetStaticDefaults()
     {
       DisplayName.SetDefault("Mechanical Chip");
-      Tooltip.SetDefault("Increases melee damage and speed by 8%\n'It increases your muscle strenght!'");
+      Tooltip.SetDefault("Increases melee damage and speed by 8%\n'It increases your muscle strength'");
     }
 
         public override void UpdateAccessory(Player player, bool hideVisual)  //this is so when the item is equipped will give this stats to the player

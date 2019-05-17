@@ -24,7 +24,7 @@ namespace EnduriumMod.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ruinous Necklace");
-            Tooltip.SetDefault("Increases length of invincibility after taking damage\nAll attacks inflict On Fire! and you are immune to it");
+            Tooltip.SetDefault("Increases length of invincibility after taking damage\nAll attacks inflict On Fire!\n Provides immunity to On Fire!");
         }
 
 

@@ -25,7 +25,7 @@ namespace EnduriumMod.Items.Accesories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lightning Star Emblem");
-            Tooltip.SetDefault("Hitting enemies occasionally lets you run like the wind for a short while.");
+            Tooltip.SetDefault("Hitting enemies occasionally lets you run like the wind for a short time.");
         }
 
 
