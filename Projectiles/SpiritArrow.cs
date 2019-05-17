@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace EnduriumMod.Projectiles
 {
-	public class SpiritArrow : ModProjectile
+    public class SpiritArrow : ModProjectile
     {
         public override void SetDefaults()
         {
@@ -18,13 +18,21 @@ namespace EnduriumMod.Projectiles
             projectile.aiStyle = 1;
             aiType = 1;
         }
-                public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Spirit Arrow");
         }
-									    public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void AI()
         {
-		        	target.AddBuff(mod.BuffType("ReaperNature"), 300);
-					}
-	}
+            if (projectile.damage <= 0)
+            {
+                projectile.Kill();
+            }
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            projectile.damage = projectile.damage / 2;
+            target.AddBuff(mod.BuffType("ReaperNature"), 300);
+        }
+    }
 }

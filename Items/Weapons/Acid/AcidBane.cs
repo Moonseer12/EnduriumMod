@@ -37,7 +37,7 @@ namespace EnduriumMod.Items.Weapons.Acid
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Acid Bane");
-            Tooltip.SetDefault("");
+            Tooltip.SetDefault("Turns spirit arrows into acid arrows");
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
@@ -46,7 +46,11 @@ namespace EnduriumMod.Items.Weapons.Acid
             {
                 position += muzzleOffset;
             }
-            return true; // return false because we don't want tmodloader to shoot projectile
+            if (type == mod.ProjectileType("SpiritArrow"))
+            {
+                type = mod.ProjectileType("AcidBane");
+            }
+            return true;
         }
     }
 }
