@@ -43,6 +43,17 @@ namespace EnduriumMod
         }
         public override void PostSetupContent()
         {
+            Mod LootBags = ModLoader.GetMod("LootBags");
+            if (LootBags != null)
+            {
+                LootBags.Call(.20, ItemType("AncientMandible"), 1, 2, 1);
+                LootBags.Call(.50, ItemType("PutridSpore"), 1, 5, 1);
+                LootBags.Call(.50, ItemType("NatureEssence"), 1, 3, 1);
+                LootBags.Call(.25, ItemType("BloodFangCore"), 1, 3, 1);
+                LootBags.Call(.25, ItemType("BronzeCoin"), 1, 3, 1);
+
+            }
+
             Mod yabhb = ModLoader.GetMod("FKBossHealthBar");
             if (yabhb != null)
             {

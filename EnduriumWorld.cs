@@ -79,9 +79,10 @@ public class EnduriumWorld : ModWorld
         StarArmyUp = false;
         downedStar = false;
     }
-
+   
     public override void PostUpdate()
     {
+      
         if (StarArmyUp)
         {
             if (Main.invasionX == (double)Main.spawnTileX)

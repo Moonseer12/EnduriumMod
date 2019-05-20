@@ -15,8 +15,8 @@ namespace EnduriumMod.Projectiles
         }
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 10;
+            projectile.width = 20;
+            projectile.height = 20;
             projectile.friendly = true;
             projectile.alpha = 255;
             projectile.penetrate = 5;
@@ -28,10 +28,10 @@ namespace EnduriumMod.Projectiles
         {
             projectile.velocity.X *= 0.985f;
             projectile.velocity.Y *= 0.985f;
-            int a = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 105, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+            int a = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 90, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
             Main.dust[a].noGravity = true;
             Main.dust[a].velocity *= 0.5f;
-            Main.dust[a].scale *= 0.75f;
+            Main.dust[a].scale *= 1.25f;
         }
     }
 }

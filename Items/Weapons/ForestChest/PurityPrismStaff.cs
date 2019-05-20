@@ -71,7 +71,7 @@ namespace EnduriumMod.Items.Weapons.ForestChest
             }
             if (player.altFunctionUse == 2)
             {
-                int p = Projectile.NewProjectile(Main.MouseWorld.X, Main.MouseWorld.Y, 0f, 0f, mod.ProjectileType("PurityPrism"), item.damage, item.knockBack, item.owner);
+                int p = Projectile.NewProjectile(Main.MouseWorld.X, Main.MouseWorld.Y, 0f, 0f, mod.ProjectileType("PurityPrism"), item.damage, item.knockBack, Main.myPlayer);
                 return false;
             }
           return true;

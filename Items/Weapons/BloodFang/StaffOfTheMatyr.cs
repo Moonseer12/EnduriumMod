@@ -10,9 +10,9 @@ namespace EnduriumMod.Items.Weapons.BloodFang
         public override void SetDefaults()
         {
 
-            item.damage = 11;
+            item.damage = 12;
             item.magic = true;
-            item.mana = 6;
+            item.mana = 3;
             item.width = 52;
             item.height = 52;
             item.useTime = 28;
@@ -24,7 +24,7 @@ namespace EnduriumMod.Items.Weapons.BloodFang
             item.noMelee = true; //so the item's animation doesn't do damage
             item.knockBack = 2.25f;
             item.value = 10000;
-            item.rare = 2;
+            item.rare = 2;  
             item.UseSound = SoundID.Item72;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("BloodOfTheMatyr");

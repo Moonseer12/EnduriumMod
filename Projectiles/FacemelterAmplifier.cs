@@ -131,7 +131,7 @@ namespace EnduriumMod.Projectiles
                     projectile.frame = 0;
                 }
             }
-            if (flag && Main.myPlayer == projectile.owner)
+            if (flag)
             {
                 float scaleFactor = player.inventory[player.selectedItem].shootSpeed * projectile.scale;
                 Vector2 vector3 = vector;

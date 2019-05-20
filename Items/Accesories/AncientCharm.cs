@@ -21,7 +21,7 @@ namespace EnduriumMod.Items.Accesories
             item.width = 20;
             item.height = 26;
             item.value = 300000;
-            item.rare = 3;
+            item.rare = 1;
             item.accessory = true;
         }
 

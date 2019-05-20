@@ -16,8 +16,8 @@ namespace EnduriumMod.Projectiles
         }
         public override void SetDefaults()
         {
-            projectile.width = 8;
-            projectile.height = 8;
+            projectile.width = 16;
+            projectile.height = 16;
             projectile.aiStyle = 1;
             projectile.friendly = true;
             projectile.magic = true;
@@ -62,8 +62,6 @@ namespace EnduriumMod.Projectiles
                 }
                 if (flag10)
                 {
-                    projectile.friendly = true;
-
                     float num379 = 8f;
                     float num380 = 0.08f;
                     Vector2 vector29 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
