@@ -69,6 +69,7 @@ namespace EnduriumMod.Projectiles
         }
         public override void AI()
         {
+           
             Player player = Main.player[projectile.owner];
             MyPlayer modPlayer = (MyPlayer)player.GetModPlayer(mod, "MyPlayer");
             float num = 1.57079637f;

@@ -28,15 +28,15 @@ namespace EnduriumMod.Items.Armor
             DisplayName.SetDefault("Bloodlight Helmet");
             Tooltip.SetDefault("Increases max health\nIncreases critical strike chance and damage by 4%");
         }
-		        public override bool IsArmorSet(Terraria.Item head, Terraria.Item body, Terraria.Item legs)
+        public override bool IsArmorSet(Terraria.Item head, Terraria.Item body, Terraria.Item legs)
         {
             return body.type == mod.ItemType("BloodlightBody") && legs.type == mod.ItemType("BloodlightLegs");
         }
 
         public override void ArmorSetShadows(Player player)
         {
-			player.armorEffectDrawOutlinesForbidden = true;
-						player.armorEffectDrawShadow = true;
+            player.armorEffectDrawOutlinesForbidden = true;
+            player.armorEffectDrawShadow = true;
         }
 
         public override void UpdateArmorSet(Player player)
@@ -113,25 +113,24 @@ namespace EnduriumMod.Items.Armor
                 player.thrownDamage += 0.02f;
             }
         }
-        
+
 
         public override void UpdateEquip(Player player)
         {
-				            player.statLifeMax2 += 15;
-			            
-					            player.rangedDamage += 0.04f;
+            player.statLifeMax2 += 15;
+            player.rangedDamage += 0.04f;
             player.meleeDamage += 0.04f;
-			player.meleeCrit += 4;
-			player.magicCrit += 4;
-			player.rangedCrit += 4;
-			player.thrownCrit += 4;
+            player.meleeCrit += 4;
+            player.magicCrit += 4;
+            player.rangedCrit += 4;
+            player.thrownCrit += 4;
             player.magicDamage += 0.04f;
             player.thrownDamage += 0.04f;
         }
-						        public override void AddRecipes()
+        public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-			            recipe.AddIngredient(null, ("BloodlightBar"), 18);
+            recipe.AddIngredient(null, ("BloodlightBar"), 18);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
