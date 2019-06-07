@@ -24,14 +24,28 @@ namespace EnduriumMod.Items.TheSpiritOfBloom
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Spirit Band");
-            Tooltip.SetDefault("Grants immunity to Poisoned and Reaper Nature");
+            Tooltip.SetDefault("While you are poisoned or ");
         }
 
 
         public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.buffImmune[BuffID.Poisoned] = true;
-			            player.buffImmune[mod.BuffType("ReaperNature")] = true;
+        { 
+            if (player.poisoned)
+            {
+                player.magicDamage += 0.1f;
+                player.meleeDamage += 0.1f;
+                player.minionDamage += 0.1f;
+                player.rangedDamage += 0.1f;
+                player.thrownDamage += 0.1f;
+            }
+            if (((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).ReaperNature)
+            {
+                player.magicDamage += 0.1f;
+                player.meleeDamage += 0.1f;
+                player.minionDamage += 0.1f;
+                player.rangedDamage += 0.1f;
+                player.thrownDamage += 0.1f;
+            }
         }
     }
 }

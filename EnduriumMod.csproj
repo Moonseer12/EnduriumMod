@@ -473,7 +473,6 @@
     <Compile Include="Items\TheSpiritOfBloom\BlessedHatchet.cs" />
     <Compile Include="Items\TheSpiritOfBloom\BloomingEmblem.cs" />
     <Compile Include="Items\TheSpiritOfBloom\BloomingTreasureBag.cs" />
-    <Compile Include="Items\TheSpiritOfBloom\BloomSawblade.cs" />
     <Compile Include="Items\TheSpiritOfBloom\SpiritFlameshot.cs" />
     <Compile Include="Items\TheSpiritOfBloom\SpiritSpear.cs" />
     <Compile Include="Items\TheSpiritOfBloom\TheBloomingFire.cs" />
@@ -916,7 +915,6 @@
     <Compile Include="Projectiles\BloomlightStaff.cs" />
     <Compile Include="Projectiles\BloomlightYoyo.cs" />
     <Compile Include="Projectiles\BloomRang.cs" />
-    <Compile Include="Projectiles\BloomSawblade.cs" />
     <Compile Include="Projectiles\BoltofBalance.cs" />
     <Compile Include="Projectiles\BombRotate.cs" />
     <Compile Include="Projectiles\BoneDagger.cs" />
@@ -2007,7 +2005,6 @@
     <Content Include="Items\TheSpiritOfBloom\BlessedHatchet.png" />
     <Content Include="Items\TheSpiritOfBloom\BloomingEmblem.png" />
     <Content Include="Items\TheSpiritOfBloom\BloomingTreasureBag.png" />
-    <Content Include="Items\TheSpiritOfBloom\BloomSawblade.png" />
     <Content Include="Items\TheSpiritOfBloom\SpiritFlameshot.png" />
     <Content Include="Items\TheSpiritOfBloom\SpiritSpear.png" />
     <Content Include="Items\TheSpiritOfBloom\TheBloomingFire.png" />
@@ -2528,7 +2525,6 @@
     <Content Include="Projectiles\BloomlightStaff.png" />
     <Content Include="Projectiles\BloomlightYoyo.png" />
     <Content Include="Projectiles\BloomRang.png" />
-    <Content Include="Projectiles\BloomSawblade.png" />
     <Content Include="Projectiles\BoltofBalance.png" />
     <Content Include="Projectiles\BombRotate.png" />
     <Content Include="Projectiles\BoneDagger.png" />

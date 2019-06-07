@@ -949,12 +949,7 @@ namespace EnduriumMod
             }
             if (ReaperNature)
             {
-                player.lifeRegen = -3;
-                player.statDefense--;
-                player.statDefense--;
-                player.statDefense--;
-                player.statDefense--;
-                player.statDefense--;
+                player.statDefense = 0;
             }
             if (SwiftDodge)
             {
@@ -1051,10 +1046,7 @@ namespace EnduriumMod
             if (BiologicalCrit && crit)
             {
                 player.AddBuff(mod.BuffType("SpiritEnergy"), 60);
-            }
-            if (BiologicalCrit)
-            {
-                target.AddBuff(mod.BuffType("ReaperNature"), 60);
+                target.AddBuff(mod.BuffType("ReaperNature"), 100);
             }
             if (ErodedSet && proj.thrown)
             {

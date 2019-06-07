@@ -11,14 +11,14 @@ namespace EnduriumMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 18;
+            projectile.width = 8;
+            projectile.height = 8;
             projectile.friendly = true;
             projectile.magic = true;
             projectile.penetrate = 2;
             projectile.timeLeft = 800;
             projectile.light = 0.25f;
-            projectile.extraUpdates = 1;
+            projectile.extraUpdates = 2;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 2;
             ProjectileID.Sets.TrailingMode[projectile.type] = 5;
             projectile.aiStyle = 2;
@@ -31,28 +31,27 @@ namespace EnduriumMod.Projectiles
         }
         public override bool PreAI()
         {
-            for (int num136 = 0; num136 < 3; num136++)
+            int num;
+            for (int num143 = 0; num143 < 2; num143 = num + 1)
             {
-                float x2 = projectile.position.X - projectile.velocity.X / 10f * (float)num136;
-                float y2 = projectile.position.Y - projectile.velocity.Y / 10f * (float)num136;
-                int num137 = Dust.NewDust(new Vector2(x2, y2), 16, 255, 3, 0f, 0f, 0, default(Color), 0.92f);
-                Main.dust[num137].alpha = projectile.alpha;
-                Main.dust[num137].position.X = x2;
-                Main.dust[num137].position.Y = y2;
-                Main.dust[num137].velocity *= 1f;
-                Main.dust[num137].noGravity = true;
+                int num144 = Utils.SelectRandom<int>(Main.rand, new int[]
+                {
+                        89,
+                        107,
+                        61
+                });
+                Dust dust23 = Main.dust[Dust.NewDust(projectile.position, projectile.width, projectile.height, num144, projectile.velocity.X, projectile.velocity.Y, 100, default(Color), 1f)];
+                dust23.velocity = dust23.velocity / 4f + projectile.velocity / 2f;
+                dust23.noGravity = true;
+                dust23.scale = 1.1f;
+                if (num144 != 107)
+                {
+                    dust23.velocity *= 0.1f;
+                }
+                dust23.noLight = true;
+                num = num143;
             }
-            for (int num136 = 0; num136 < 3; num136++)
-            {
-                float x2 = projectile.position.X - projectile.velocity.X / 10f * (float)num136;
-                float y2 = projectile.position.Y - projectile.velocity.Y / 10f * (float)num136;
-                int num137 = Dust.NewDust(new Vector2(x2, y2), 16, 255, 2, 0f, 0f, 0, default(Color), 0.82f);
-                Main.dust[num137].alpha = projectile.alpha;
-                Main.dust[num137].position.X = x2;
-                Main.dust[num137].position.Y = y2;
-                Main.dust[num137].velocity *= 1f;
-                Main.dust[num137].noGravity = true;
-            }
+
             float num166 = (float)Math.Sqrt((double)(projectile.velocity.X * projectile.velocity.X + projectile.velocity.Y * projectile.velocity.Y));
             float num167 = projectile.localAI[0];
             if (num167 == 0f)
@@ -75,7 +74,6 @@ namespace EnduriumMod.Projectiles
             int num171 = 0;
             if (projectile.ai[1] == 0f)
             {
-                int num;
                 for (int num172 = 0; num172 < 200; num172 = num + 1)
                 {
                     if (Main.npc[num172].CanBeChasedBy(projectile, false) && (projectile.ai[1] == 0f || projectile.ai[1] == (float)(num172 + 1)))

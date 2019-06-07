@@ -27,7 +27,7 @@ namespace EnduriumMod.Projectiles
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             projectile.damage = projectile.damage / 2;
-            target.AddBuff(mod.BuffType("ReaperNature"), 300);
+            target.AddBuff(mod.BuffType("ReaperNature"), 200);
         }
         public override void AI()
         {

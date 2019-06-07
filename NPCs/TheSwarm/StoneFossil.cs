@@ -58,14 +58,13 @@ namespace EnduriumMod.NPCs.TheSwarm
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(mod.BuffType("ReaperNature"), 100);
+            target.AddBuff(mod.BuffType("ReaperNature"), 200);
         }
         public override void AI()
         {
             if (projectile.ai[0] == 0f)
             {
                 Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 18);
-
             }
             projectile.ai[0] += 1f;
         }

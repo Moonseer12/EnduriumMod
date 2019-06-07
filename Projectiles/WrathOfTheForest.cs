@@ -23,7 +23,7 @@ namespace EnduriumMod.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(mod.BuffType("ReaperNature"), 300);
+            target.AddBuff(mod.BuffType("ReaperNature"), 200);
             target.immune[projectile.owner] = 5;
         }
         public override void SetStaticDefaults()

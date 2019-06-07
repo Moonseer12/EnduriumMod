@@ -46,7 +46,7 @@ namespace EnduriumMod.NPCs.TheSpiritOfBloom
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(mod.BuffType("ReaperNature"), 100);
+            target.AddBuff(mod.BuffType("ReaperNature"), 200);
         }
         public override void Kill(int timeLeft)
         {

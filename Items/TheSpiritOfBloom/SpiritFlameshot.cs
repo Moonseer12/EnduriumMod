@@ -10,28 +10,28 @@ namespace EnduriumMod.Items.TheSpiritOfBloom
     {
         public override void SetDefaults()
         {
-            item.damage = 12;
+            item.damage = 24;
             item.ranged = true;
             item.width = 50;
             item.height = 20;
-            item.useTime = 24;
-            item.useAnimation = 24;
+            item.useTime = 54;
+            item.useAnimation = 54;
             item.useStyle = 5;
             item.noMelee = true;
-            item.knockBack = 1;
+            item.knockBack = 3;
             item.value = Terraria.Item.buyPrice(0, 1, 30, 0);
             item.rare = 3;
             item.UseSound = SoundID.Item41;
-            item.autoReuse = true;
+            item.autoReuse = false;
             item.shoot = 10;
-            item.shootSpeed = 4f;
+            item.shootSpeed = 5f;
             item.useAmmo = AmmoID.Bullet;
         }
 
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Spirit Flameshot");
-            Tooltip.SetDefault("'Launches bouncy balls'");
+            Tooltip.SetDefault("'Launches bouncy projectiles'\nIf the projectile hits a target 3 times it explodes");
         }
 
 

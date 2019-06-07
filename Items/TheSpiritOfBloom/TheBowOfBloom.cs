@@ -26,24 +26,23 @@ namespace EnduriumMod.Items.TheSpiritOfBloom
             item.rare = 7;
             item.UseSound = SoundID.Item5;
             item.autoReuse = true;
-            item.shootSpeed = 23f;
-
+            item.shootSpeed = 8f;
         }
-		        public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Blessed Spirit Bow");
-            Tooltip.SetDefault("Turns arrows into blessed spirit bolts that home onto enemies\nInflicts nature reaper");
+            Tooltip.SetDefault("Turns arrows into spirit bolts that home onto enemies\nInflicts nature reaper");
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("BlessedSpiritArrow"), damage, knockBack, player.whoAmI, 0f, 0f); //This is spawning a projectile of type FrostburnArrow using the original stats
             return false; //Makes sure to not fire the original projectile
         }
-		        public override void AddRecipes()
+        public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, ("BloomlightBar"), 15);
-			            recipe.AddIngredient(null, ("TrueNatureEssence"), 12);
+            recipe.AddIngredient(null, ("TrueNatureEssence"), 12);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();

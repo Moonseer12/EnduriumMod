@@ -48,7 +48,6 @@ namespace EnduriumMod.Projectiles
             if (projectile.ai[0] == 0f)
             {
                 Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 18);
-
             }
             projectile.ai[0] += 1f;
             if (projectile.ai[0] >= 25f)       //how much time the projectile can travel before landing
