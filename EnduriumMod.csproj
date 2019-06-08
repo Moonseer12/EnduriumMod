@@ -510,7 +510,6 @@
     <Compile Include="Items\Weapons\BattleGoblinStaff.cs" />
     <Compile Include="Items\Weapons\BladeofBalance.cs" />
     <Compile Include="Items\Weapons\BlastBuster.cs" />
-    <Compile Include="Items\Weapons\BlessedClaymore.cs" />
     <Compile Include="Items\Weapons\BloodClawStaff.cs" />
     <Compile Include="Items\Weapons\BloodFang\BloodClustHammer.cs" />
     <Compile Include="Items\Weapons\BloodFang\BloodClustWarAxe.cs" />
@@ -2044,7 +2043,6 @@
     <Content Include="Items\Weapons\BattleGoblinStaff.png" />
     <Content Include="Items\Weapons\BladeofBalance.png" />
     <Content Include="Items\Weapons\BlastBuster.png" />
-    <Content Include="Items\Weapons\BlessedClaymore.png" />
     <Content Include="Items\Weapons\BloodClawStaff.png" />
     <Content Include="Items\Weapons\BloodFang\BloodClustHammer.png" />
     <Content Include="Items\Weapons\BloodFang\BloodClustWarAxe.png" />

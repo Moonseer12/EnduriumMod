@@ -11,7 +11,7 @@ namespace EnduriumMod.Items.Weapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Holy Light");
-            Tooltip.SetDefault("Creates a bolt of holy energy\nInflicts holy grail");
+            Tooltip.SetDefault("Creates a bolt of holy energy");
         }
         public override void SetDefaults()
         {     
