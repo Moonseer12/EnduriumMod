@@ -28,109 +28,51 @@ namespace EnduriumMod.Items.Armor
             DisplayName.SetDefault("Bloodlight Helmet");
             Tooltip.SetDefault("Increases max health\nIncreases critical strike chance and damage by 4%");
         }
-        public override bool IsArmorSet(Terraria.Item head, Terraria.Item body, Terraria.Item legs)
+		        public override bool IsArmorSet(Terraria.Item head, Terraria.Item body, Terraria.Item legs)
         {
             return body.type == mod.ItemType("BloodlightBody") && legs.type == mod.ItemType("BloodlightLegs");
         }
 
         public override void ArmorSetShadows(Player player)
         {
-            player.armorEffectDrawOutlinesForbidden = true;
-            player.armorEffectDrawShadow = true;
+			player.armorEffectDrawOutlinesForbidden = true;
+						player.armorEffectDrawShadow = true;
         }
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Increases damage as health decreases\nUp to 20% bonus damage";
-            if (player.statLife <= (player.statLifeMax2 * 0.9f))
+            ((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).BloodGem = true;
+            player.setBonus = "Summons a blood gem that give you a healing effect.";
+           
             {
-                player.rangedDamage += 0.02f;
-                player.meleeDamage += 0.02f;
-                player.magicDamage += 0.02f;
-                player.thrownDamage += 0.02f;
-            }
-            if (player.statLife <= (player.statLifeMax2 * 0.8f))
-            {
-                player.rangedDamage += 0.02f;
-                player.meleeDamage += 0.02f;
-                player.magicDamage += 0.02f;
-                player.thrownDamage += 0.02f;
-            }
-            if (player.statLife <= (player.statLifeMax2 * 0.7f))
-            {
-                player.rangedDamage += 0.02f;
-                player.meleeDamage += 0.02f;
-                player.magicDamage += 0.02f;
-                player.thrownDamage += 0.02f;
-            }
-            if (player.statLife <= (player.statLifeMax2 * 0.6f))
-            {
-                player.rangedDamage += 0.02f;
-                player.meleeDamage += 0.02f;
-                player.magicDamage += 0.02f;
-                player.thrownDamage += 0.02f;
-            }
-            if (player.statLife <= (player.statLifeMax2 * 0.5f))
-            {
-                player.rangedDamage += 0.02f;
-                player.meleeDamage += 0.02f;
-                player.magicDamage += 0.02f;
-                player.thrownDamage += 0.02f;
-            }
-            if (player.statLife <= (player.statLifeMax2 * 0.4f))
-            {
-                player.rangedDamage += 0.02f;
-                player.meleeDamage += 0.02f;
-                player.magicDamage += 0.02f;
-                player.thrownDamage += 0.02f;
-            }
-            if (player.statLife <= (player.statLifeMax2 * 0.3f))
-            {
-                player.rangedDamage += 0.02f;
-                player.meleeDamage += 0.02f;
-                player.magicDamage += 0.02f;
-                player.thrownDamage += 0.02f;
-            }
-            if (player.statLife <= (player.statLifeMax2 * 0.2f))
-            {
-                player.rangedDamage += 0.02f;
-                player.meleeDamage += 0.02f;
-                player.magicDamage += 0.02f;
-                player.thrownDamage += 0.02f;
-            }
-            if (player.statLife <= (player.statLifeMax2 * 0.1f))
-            {
-                player.rangedDamage += 0.02f;
-                player.meleeDamage += 0.02f;
-                player.magicDamage += 0.02f;
-                player.thrownDamage += 0.02f;
-            }
-            if (player.statLife <= (player.statLifeMax2 * 0.05f))
-            {
-                player.rangedDamage += 0.02f;
-                player.meleeDamage += 0.02f;
-                player.magicDamage += 0.02f;
-                player.thrownDamage += 0.02f;
-            }
-        }
+                bool petProjectileNotSpawned1 = player.ownedProjectileCounts[mod.ProjectileType("BloodGemProj")] <= 0;
+                if (petProjectileNotSpawned1 && player.whoAmI == Main.myPlayer)
+                {
+                    int num1 = Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("BloodGemProj"), 0, 0f, player.whoAmI, 0f, 0f);
 
+                }
+            }
+
+        }
+        
 
         public override void UpdateEquip(Player player)
         {
-            player.statLifeMax2 += 15;
-            player.rangedDamage += 0.04f;
+				            player.statLifeMax2 += 15;
+			            
+					            player.rangedDamage += 0.04f;
             player.meleeDamage += 0.04f;
-            player.meleeCrit += 4;
-            player.magicCrit += 4;
-            player.rangedCrit += 4;
-            player.thrownCrit += 4;
+			player.meleeCrit += 4;
+			player.magicCrit += 4;
+			player.rangedCrit += 4;
+			player.thrownCrit += 4;
             player.magicDamage += 0.04f;
             player.thrownDamage += 0.04f;
         }
-        public override void AddRecipes()
+						        public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, ("BloodlightBar"), 18);
+			            recipe.AddIngredient(null, ("BloodlightBar"), 18);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();

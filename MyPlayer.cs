@@ -17,11 +17,12 @@ namespace EnduriumMod
         public int bonusHealth;
         public int bonusMana;
         public bool CharmofLuna;
+        public bool BloodGemHurt;
         public bool CharmHide;
         public bool CharmAccPrevious;
         public bool CharmForce;
         public bool CharmEffect;
-
+        public bool BloodGem;
         public bool CharmofSacrifises;
         public bool CharmSHide;
         public bool CharmSAccPrevious;
@@ -289,6 +290,7 @@ namespace EnduriumMod
             EthernalNecklace = false;
             EarthTurret = false;
             flaggo = false;
+            BloodGem = false;
             SnowflakeMinionBuff = false;
             BloodFang = false;
             ShadowTouch = false;
@@ -798,6 +800,7 @@ namespace EnduriumMod
         }
         public override void UpdateBadLifeRegen()
         {
+            
             if (Voidwalker)
             {
                 if (Main.rand.Next(2) == 0)
@@ -949,7 +952,12 @@ namespace EnduriumMod
             }
             if (ReaperNature)
             {
-                player.statDefense = 0;
+                player.lifeRegen = -3;
+                player.statDefense--;
+                player.statDefense--;
+                player.statDefense--;
+                player.statDefense--;
+                player.statDefense--;
             }
             if (SwiftDodge)
             {
@@ -1046,7 +1054,10 @@ namespace EnduriumMod
             if (BiologicalCrit && crit)
             {
                 player.AddBuff(mod.BuffType("SpiritEnergy"), 60);
-                target.AddBuff(mod.BuffType("ReaperNature"), 100);
+            }
+            if (BiologicalCrit)
+            {
+                target.AddBuff(mod.BuffType("ReaperNature"), 60);
             }
             if (ErodedSet && proj.thrown)
             {
@@ -1430,6 +1441,12 @@ namespace EnduriumMod
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
         {
+            if (BloodGem)
+            {
+                BloodGemHurt = true;
+               
+            }
+            
             if (StormShield)
             {
                 StormShieldCharge = 0f;
