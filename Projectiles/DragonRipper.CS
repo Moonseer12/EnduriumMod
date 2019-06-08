@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -23,7 +24,7 @@ namespace EnduriumMod.Projectiles
         {
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
-            DisplayName.SetDefault("The Thornvile");
+            DisplayName.SetDefault("Dragon Ripper");
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
@@ -58,7 +59,12 @@ namespace EnduriumMod.Projectiles
                 projectile.tileCollide = false;
                 int num986 = 15;
                 bool flag53 = false;
+                bool flag54 = false;
                 projectile.localAI[0] += 1f;
+                if (projectile.localAI[0] % 30f == 0f)
+                {
+                    flag54 = true;
+                }
                 int num987 = (int)projectile.ai[1];
                 if (projectile.localAI[0] >= (float)(60 * num986))
                 {
@@ -72,10 +78,15 @@ namespace EnduriumMod.Projectiles
                 {
                     projectile.Center = Main.npc[num987].Center - projectile.velocity * 1.7f;
                     projectile.gfxOffY = Main.npc[num987].gfxOffY;
-                    if (projectile.localAI[0] >= 30)
+                    if (flag54)
                     {
-                        Main.npc[num987].HitEffect(0, 10);
-                        projectile.localAI[0] = 0;
+                        float num628 = (float)Main.rand.Next(-35, 36) * 0.02f;
+                        float num629 = (float)Main.rand.Next(-35, 36) * 0.02f;
+                        num628 *= 5f;
+                        num629 *= 5f;
+                        int num1111 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, num628, num629, mod.ProjectileType("FireBlast"), 20, 2f, Main.myPlayer, 0f, 0f);
+                        Main.projectile[num1111].extraUpdates = 10;
+                        Main.npc[num987].HitEffect(0, 1.0);
                     }
                 }
                 else
@@ -112,7 +123,7 @@ namespace EnduriumMod.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(1, 300);
+         //   target.AddBuff(24, 300);
             Player player = Main.player[projectile.owner];
             MyPlayer modPlayer = (MyPlayer)player.GetModPlayer(mod, "MyPlayer");
             projectile.ai[0] = 1;
@@ -156,22 +167,10 @@ namespace EnduriumMod.Projectiles
             MyPlayer modPlayer = (MyPlayer)player.GetModPlayer(mod, "MyPlayer");
             if (modPlayer.SpearBoom == 0)
             {
-                int num3;
-                for (int num731 = 0; num731 < 22; num731 = num3 + 1)
+                for (int num621 = 0; num621 < 15; num621++)
                 {
-                    float x = projectile.velocity.X * (20f / num731);
-                    float y = projectile.velocity.Y * (20f / num731);
-                    int num732 = Dust.NewDust(new Vector2(projectile.oldPosition.X - x, projectile.oldPosition.Y - y), projectile.width, projectile.height, 6, 0f, 0f, 100, default(Color), 1.5f);
-                    Main.dust[num732].noGravity = true;
-                    Dust dust = Main.dust[num732];
-                    dust.velocity.X *= 0.8f;
-                    dust.velocity.Y *= 1.2f;
-                    num732 = Dust.NewDust(new Vector2(projectile.oldPosition.X - x, projectile.oldPosition.Y - y), projectile.width, projectile.height, 266, 0f, 0f, 100, default(Color), 0.8f);
-                    dust = Main.dust[num732];
-                    dust.velocity.X *= 0.8f;
-                    dust.noGravity = true;
-                    dust.velocity.Y *= 1.2f;
-                    num3 = num731;
+                    int num622 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 6, 0f, 0f, 100, default(Color), 1.2f);
+                    Main.dust[num622].velocity *= 3f;
                 }
             }
         }
