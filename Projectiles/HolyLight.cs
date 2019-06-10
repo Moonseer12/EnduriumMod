@@ -19,6 +19,7 @@ namespace EnduriumMod.Projectiles
             projectile.height = 16;
             projectile.friendly = true;
             projectile.alpha = 255;
+            projectile.extraUpdates = 1;
             projectile.penetrate = 10;
             projectile.timeLeft /= 2;
             projectile.magic = true;
@@ -26,43 +27,45 @@ namespace EnduriumMod.Projectiles
 
         public override void AI()
         {
-            int num3;
-            for (int num93 = 0; num93 < 5; num93 = num3 + 1)
+            int num;
+            for (int num143 = 0; num143 < 2; num143 = num + 1)
             {
-                float num94 = projectile.velocity.X / 3f * (float)num93;
-                float num95 = projectile.velocity.Y / 3f * (float)num93;
-                int num96 = 4;
-                int num97 = Dust.NewDust(new Vector2(projectile.position.X + (float)num96, projectile.position.Y + (float)num96), projectile.width - num96 * 2, projectile.height - num96 * 2, 114, 0f, 0f, 100, default(Color), 1.2f);
-                Main.dust[num97].noGravity = true;
-                Dust dust3 = Main.dust[num97];
-                dust3.velocity *= 0.1f;
-                dust3 = Main.dust[num97];
-                dust3.velocity += projectile.velocity * 0.1f;
-                Dust dust6 = Main.dust[num97];
-                dust6.position.X = dust6.position.X - num94;
-                Dust dust7 = Main.dust[num97];
-                dust7.position.Y = dust7.position.Y - num95;
-                num3 = num93;
+                int num144 = Utils.SelectRandom<int>(Main.rand, new int[]
+                {
+                        269,
+                        6
+                });
+                Dust dust23 = Main.dust[Dust.NewDust(projectile.position, projectile.width, projectile.height, num144, projectile.velocity.X, projectile.velocity.Y, 100, default(Color), 1f)];
+                dust23.velocity = dust23.velocity / 4f + projectile.velocity / 2f;
+                dust23.noGravity = true;
+                dust23.scale = 1.2f;
+                dust23.position = projectile.Center;
+                dust23.noLight = true;
+                num = num143;
             }
-            if (Main.rand.Next(5) == 0)
-            {
-                int num98 = 4;
-                int num99 = Dust.NewDust(new Vector2(projectile.position.X + (float)num98, projectile.position.Y + (float)num98), projectile.width - num98 * 2, projectile.height - num98 * 2, 269, 0f, 0f, 100, default(Color), 0.6f);
-                Dust dust3 = Main.dust[num99];
-                dust3.velocity *= 0.25f;
-                dust3 = Main.dust[num99];
-                dust3.velocity += projectile.velocity * 0.5f;
-            }
+
+            projectile.ai[0] += 1f;
         }
-
-
-
         public override void Kill(int timeLeft)
         {
-        	Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
-            for (int k = 0; k < 12; k++)
+
+            projectile.position.X = projectile.position.X + (float)(projectile.width / 2);
+            projectile.position.Y = projectile.position.Y + (float)(projectile.height / 2);
+            projectile.width = 12;
+            projectile.height = 12;
+            projectile.position.X = projectile.position.X - (float)(projectile.width / 2);
+            projectile.position.Y = projectile.position.Y - (float)(projectile.height / 2);
+            int num3;
+            for (int num731 = 0; num731 < 2; num731 = num3 + 1)
             {
-            	Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 228, projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
+                int num732 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 6, 0f, 0f, 100, default(Color), 1.5f);
+                Main.dust[num732].noGravity = true;
+                Dust dust = Main.dust[num732];
+                dust.velocity *= 3f;
+                num732 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 269, 0f, 0f, 100, default(Color), 1.2f);
+                dust = Main.dust[num732];
+                dust.velocity *= 1f;
+                num3 = num731;
             }
         }
     }

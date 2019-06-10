@@ -31,7 +31,7 @@ namespace EnduriumMod.Items.Weapons
             item.UseSound = SoundID.Item20;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("HolyLight");
-            item.shootSpeed = 19f;
+            item.shootSpeed = 9f;
         }
     }
 }

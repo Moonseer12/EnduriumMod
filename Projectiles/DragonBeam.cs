@@ -1,107 +1,100 @@
 using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace EnduriumMod.Projectiles
 {
     public class DragonBeam : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Fiery Flux");
-        }
         public override void SetDefaults()
         {
-            projectile.width = 4;
-            projectile.height = 4;
+            projectile.width = 60;
+            projectile.height = 60;
+            projectile.light = 0.25f;
             projectile.friendly = true;
-            projectile.magic = true;
-            projectile.penetrate = 1;
-            projectile.timeLeft = 200;
+            projectile.tileCollide = false;
+            projectile.hostile = false;
             projectile.ignoreWater = true;
+            projectile.penetrate = 1;
+            projectile.scale = 0.25f;
+            projectile.alpha = 0;
+            projectile.timeLeft = 600;
         }
-        float num1150 = 1f;
-        public override bool OnTileCollide(Vector2 oldVelocity)
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            //If collide with tile, reduce the penetrate.
-            //So the projectile can reflect at most 5 times
-            projectile.velocity.Y += 5f;
-            if (projectile.penetrate <= 0)
-            {
-                projectile.Kill();
-            }
-            else
-            {
-                if (projectile.velocity.X != oldVelocity.X)
-                {
-                    projectile.velocity.X = -oldVelocity.X;
-                }
-                if (projectile.velocity.Y != oldVelocity.Y)
-                {
-                    projectile.velocity.Y = -oldVelocity.Y;
-                }
-                Main.PlaySound(SoundID.Item10, projectile.position);
-            }
+            Texture2D glowmask = Main.projectileTexture[projectile.type];
+            int glownum = Main.projectileTexture[projectile.type].Height / Main.projFrames[projectile.type];
+            int y7 = glownum * projectile.frame;
+            Main.spriteBatch.Draw(glowmask, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, y7, glowmask.Width, glownum)), projectile.GetAlpha(Color.White), projectile.rotation, new Vector2((float)glowmask.Width / 2f, (float)glownum / 2f), projectile.scale, projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            Main.spriteBatch.Draw(glowmask, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, y7, glowmask.Width, glownum)), projectile.GetAlpha(Color.White), -projectile.rotation, new Vector2((float)glowmask.Width / 2f, (float)glownum / 2f), projectile.scale, projectile.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
+        }
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Fiery Magic");
+        }
+        public override bool? CanHitNPC(NPC target)
+        {
+            if (projectile.localAI[1] == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        public override void Kill(int timeLeft)
+        {
+            int num3;
+            for (int num20 = 0; num20 < 12; num20 = num3 + 1)
+            {
+                float num21 = projectile.velocity.X / 4f * (float)num20;
+                float num22 = projectile.velocity.Y / 4f * (float)num20;
+                int num23 = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, 0f, 0, default(Color), 1.3f);
+                Main.dust[num23].position.X = projectile.Center.X - num21;
+                Main.dust[num23].position.Y = projectile.Center.Y - num22;
+                Dust dust3 = Main.dust[num23];
+                dust3.velocity *= 0.6f;
+                Main.dust[num23].scale = 0.6f;
+                Main.dust[num23].fadeIn = 0.4f;
+                num3 = num20;
+            }
         }
         public override void AI()
         {
-            projectile.ai[0] += 1;
-            if (projectile.ai[0] == 15)
+            if (projectile.localAI[0] == 0)
             {
-                num1150 = 1.3f;
-                projectile.damage = (int)(projectile.damage * 1.1f);
-            }
-            if (projectile.ai[0] == 30)
-            {
-                num1150 = 1.6f;
-                projectile.damage = (int)(projectile.damage * 1.3f);
-            }
-            if (projectile.ai[0] == 60)
-            {
-                num1150 = 2f;
-                projectile.damage = (int)(projectile.damage * 1.6f);
-            }
-            if (projectile.ai[0] == 100)
-            {
-                num1150 = 2.6f;
-                projectile.damage = (int)(projectile.damage * 2f);
-            }
-            for (float num1152 = 0f; num1152 < 3f; num1152 += 1f)
-            {
-                if (Main.rand.Next(3) == 0)
+                if (projectile.scale <= 1f)
                 {
-                    Dust dust141 = Main.dust[Dust.NewDust(projectile.Center, 0, 0, 127, 0f, -2f, 0, default(Color), 1f)];
-                    dust141.position = projectile.Center + Vector2.UnitY.RotatedBy((double)(num1152 * 6.28318548f / 3f + projectile.ai[1]), default(Vector2)) * 10f;
-                    dust141.noGravity = true;
-                    dust141.velocity = projectile.DirectionFrom(dust141.position);
-                    dust141.scale = num1150;
-                    dust141.fadeIn = 0.5f;
+                    projectile.scale += 0.05f;
                 }
             }
-
-
-            return;
-        }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            target.AddBuff(mod.BuffType("ImperialInferno"), 360);
-            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 60);
-            if (projectile.ai[0] >= 15)
+                projectile.rotation += 0.04f;
+            double deg = (double)projectile.ai[0];
+            double rad = deg * (Math.PI / 180);
+            double dist = (double)projectile.ai[1];
+            if (projectile.localAI[1] == 0)
             {
-                for (int num2 = 0; num2 < 15; num2++)
+                Player player = Main.player[projectile.owner];
+                MyPlayer modPlayer = (MyPlayer)player.GetModPlayer(mod, "MyPlayer");
+                Vector2 direction = Main.player[projectile.owner].Center - projectile.Center;
+                projectile.rotation = direction.ToRotation();  //To make this i modified a projectile that orbits around the player, modified it and got it working.
+                projectile.position.X = player.Center.X - (int)(Math.Cos(rad) * dist) - projectile.width / 2;
+                projectile.position.Y = player.Center.Y - (int)(Math.Sin(rad) * dist) - projectile.height / 2;
+                projectile.ai[0] += 1;
+                projectile.ai[0] += Main.rand.NextFloat(0.5f, 2f);
+                if (modPlayer.UsedSpiritOrb)
                 {
-                    int num = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 127, 0f, 0f, 100, default(Color), 1.2f);
-                    Main.dust[num].velocity *= 3f;
-                    if (Main.rand.Next(2) == 0)
-                    {
-                        Main.dust[num].scale = num1150;
-                        Main.dust[num].fadeIn = 1f;
-                    }
+                    projectile.localAI[1] = 1;
                 }
+                Vector2 value11 = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
+                projectile.velocity = Vector2.Normalize(value11 - projectile.Center) * 12;
+            }
+            if (projectile.localAI[1] == 1)
+            {
+                projectile.localAI[1] = 2;
+                Vector2 value11 = Main.screenPosition + new Vector2(Main.mouseX - (int)(Math.Cos(rad) * dist) - projectile.width / 2, Main.mouseY - (int)(Math.Sin(rad) * dist) - projectile.height / 2);
+                projectile.velocity = Vector2.Normalize(value11 - projectile.Center) * 20;
             }
         }
     }

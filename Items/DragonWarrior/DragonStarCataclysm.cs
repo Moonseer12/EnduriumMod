@@ -43,5 +43,41 @@ namespace EnduriumMod.Items.DragonWarrior
             DisplayName.SetDefault("Dragon Fire Cataclysm");
             Tooltip.SetDefault("Casts fire magic\nThe longer the spell is active the more damage it does");
         }
+        public override bool CanUseItem(Player player)
+        {
+            if (player.altFunctionUse == 2)
+            {
+                item.useStyle = 5;
+                Item.staff[item.type] = true;
+                item.useTime = 40;
+                item.useAnimation = 40;
+            }
+            else
+            {
+                item.useStyle = 5;
+                Item.staff[item.type] = true;
+                item.useTime = 24;
+                item.useAnimation = 24;
+            }
+            return base.CanUseItem(player);
+        }
+        public override bool AltFunctionUse(Player player)
+        {
+            return true;
+        }
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            MyPlayer modPlayer = (MyPlayer)player.GetModPlayer(mod, "MyPlayer");
+            if (player.altFunctionUse != 2)
+            {
+                modPlayer.UsedSpiritOrb = false;
+                Projectile.NewProjectile(position.X, position.Y, 0f, 0f, type, damage, knockBack, player.whoAmI, Main.rand.NextFloat(0f, 360f), Main.rand.NextFloat(80f, 180f));
+            }
+            if (player.altFunctionUse == 2)
+            {
+                modPlayer.UsedSpiritOrb = true;
+            }
+            return false;
+        }
     }
 }
