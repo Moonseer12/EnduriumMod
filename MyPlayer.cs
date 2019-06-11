@@ -76,6 +76,8 @@ namespace EnduriumMod
             bonusMana = int.Parse(bonusMagic);
         }
 
+        public float DragonRifle = 0f;
+
         public bool Voidwalker = false;
 
         public bool TropicalBlushV2 = false;
@@ -800,7 +802,7 @@ namespace EnduriumMod
         }
         public override void UpdateBadLifeRegen()
         {
-            
+
             if (Voidwalker)
             {
                 if (Main.rand.Next(2) == 0)
@@ -844,7 +846,7 @@ namespace EnduriumMod
             }
             bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("Facemelter")] <= 0;
             if (petProjectileNotSpawned)
-            { 
+            {
                 if (FacemelterLethal)
                 {
                     FacemelterLethal = false;
@@ -874,7 +876,7 @@ namespace EnduriumMod
                 dustpos1 += 4;
                 dustpos2 += 4;
             }
-            
+
             if (SanguineGoliathOffSet <= -10)
             {
                 SanguineGoliathDirection = -1;
@@ -1022,10 +1024,21 @@ namespace EnduriumMod
                     }
                 }
             }
+            if (player.HeldItem.type == mod.ItemType("DragonRifle"))
+            {
+                if (DragonRifle > 0f)
+                {
+                    DragonRifle -= 0.01f;
+                }
+            }
         }
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
-            if (StormShield)
+            if (player.HeldItem.type == mod.ItemType("DragonRifle"))
+            {
+                DragonRifle += 0.18f;
+            }
+                if (StormShield)
             {
                 StormShieldCharge += 0.01f;
             }

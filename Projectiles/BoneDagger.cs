@@ -35,11 +35,11 @@ namespace EnduriumMod.Projectiles
         public override bool OnTileCollide(Vector2 oldVelocity)
         {                                                           // sound that the projectile make when hiting the terrain
             projectile.Kill();
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 10);
             return false;
         }
         public override void Kill(int timeLeft)
         {
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 10);
             Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("AOE"), (int)((double)projectile.damage * 0.75f), projectile.knockBack, projectile.owner);
             Main.PlaySound(SoundID.Item62, projectile.position);
             projectile.position.X = projectile.position.X + (float)(projectile.width / 2);

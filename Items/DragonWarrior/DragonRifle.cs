@@ -16,9 +16,9 @@ namespace EnduriumMod.Items.DragonWarrior
             item.ranged = true;
             item.width = 62;
             item.height = 26;
-            item.useTime = 31;
+            item.useTime = 11;
 
-            item.useAnimation = 31;
+            item.useAnimation = 11;
             item.useStyle = 5;
             item.noMelee = true; //so the item's animation doesn't do damage
             item.knockBack = 8f;
@@ -43,7 +43,7 @@ namespace EnduriumMod.Items.DragonWarrior
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Dragon Rifle");
-            Tooltip.SetDefault("Fires up to 3 piercing projectiles");
+            Tooltip.SetDefault("Rapidly hitting enemies overloads the gun\nWhen the gun is overloaded a burst of bullets will be released");
         }
         public override Vector2? HoldoutOffset()
         {
@@ -51,16 +51,16 @@ namespace EnduriumMod.Items.DragonWarrior
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            int numberProjectiles = 1 + Main.rand.Next(2); // 4 or 5 shots
-            for (int i = 0; i < numberProjectiles; i++)
+            MyPlayer modPlayer = (MyPlayer)player.GetModPlayer(mod, "MyPlayer");
+            if (modPlayer.DragonRifle >= 1f)
             {
-                Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(3)); // 30 degree spread.                                                                                            // perturbedSpeed = perturbedSpeed * scale; 
-                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("DragonPiercer"), damage, knockBack, player.whoAmI);
-            }
-            for (int i = 0; i < numberProjectiles; i++)
-            {
-                Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(5)); // 30 degree spread.                                                                                            // perturbedSpeed = perturbedSpeed * scale; 
-                Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+                for (int i = 0; i < 15; i++)
+                {
+                    Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 10);
+                    Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.ToRadians(45)); // 30 degree spread.                                                                                            // perturbedSpeed = perturbedSpeed * scale; 
+                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+                }
+                modPlayer.DragonRifle = -0.25f;
             }
             return true; // return false because we don't want tmodloader to shoot projectile
         }

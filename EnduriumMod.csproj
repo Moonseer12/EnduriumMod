@@ -490,7 +490,6 @@
     <Compile Include="Items\Weapons\Accretion\GalactusKnives.cs" />
     <Compile Include="Items\Weapons\Accretion\GalactusKnivesM.cs" />
     <Compile Include="Items\Weapons\Accretion\TridentofDecimation.cs" />
-    <Compile Include="Items\Weapons\AcidDouser.cs" />
     <Compile Include="Items\Weapons\Acid\AcidBane.cs" />
     <Compile Include="Items\Weapons\Acid\AcidCannon.cs" />
     <Compile Include="Items\Weapons\Acid\AcidPike.cs" />
@@ -505,8 +504,6 @@
     <Compile Include="Items\Weapons\Ancient\AncientTome.cs" />
     <Compile Include="Items\Weapons\Ancient\VulturesTalon.cs" />
     <Compile Include="Items\Weapons\Aquarius.cs" />
-    <Compile Include="Items\Weapons\Archeon45.cs" />
-    <Compile Include="Items\Weapons\AurelianRifle.cs" />
     <Compile Include="Items\Weapons\BattleGoblinStaff.cs" />
     <Compile Include="Items\Weapons\BladeofBalance.cs" />
     <Compile Include="Items\Weapons\BlastBuster.cs" />
@@ -573,8 +570,6 @@
     <Compile Include="Items\Weapons\GleamingCrag\RighteousGlaive.cs" />
     <Compile Include="Items\Weapons\GleamingCrag\SeraphicScimitar.cs" />
     <Compile Include="Items\Weapons\GleamingCrag\TheGaruda.cs" />
-    <Compile Include="Items\Weapons\GoldenAmberClaymore.cs" />
-    <Compile Include="Items\Weapons\GoldenAmberCrossbow.cs" />
     <Compile Include="Items\Weapons\GoldenKunai.cs" />
     <Compile Include="Items\Weapons\GreatbowofCinder.cs" />
     <Compile Include="Items\Weapons\GreatbowofTheMotherNature.cs" />
@@ -591,7 +586,6 @@
     <Compile Include="Items\Weapons\JungleSporeStaff.cs" />
     <Compile Include="Items\Weapons\LeadSawblade.cs" />
     <Compile Include="Items\Weapons\LightningScepter.cs" />
-    <Compile Include="Items\Weapons\LivingAccord.cs" />
     <Compile Include="Items\Weapons\MementoMori.cs" />
     <Compile Include="Items\Weapons\MercuryScepter.cs" />
     <Compile Include="Items\Weapons\MeteoriteSawblade.cs" />
@@ -633,7 +627,6 @@
     <Compile Include="Items\Weapons\Permarine\TomeOfJudgement.cs" />
     <Compile Include="Items\Weapons\PlatinumKunai.cs" />
     <Compile Include="Items\Weapons\PrismaticKnive.cs" />
-    <Compile Include="Items\Weapons\PrismaticWarhammer.cs" />
     <Compile Include="Items\Weapons\PutridStaff.cs" />
     <Compile Include="Items\Weapons\RainbowRailgun.cs" />
     <Compile Include="Items\Weapons\RetinalSoulStaff.cs" />
@@ -643,7 +636,6 @@
     <Compile Include="Items\Weapons\Rift\ShadowRiftRang.cs" />
     <Compile Include="Items\Weapons\Rift\ShadowRiftRifle.cs" />
     <Compile Include="Items\Weapons\Rift\ShadowRiftStaff.cs" />
-    <Compile Include="Items\Weapons\RottenSpire.cs" />
     <Compile Include="Items\Weapons\RuneShard\SoulPurge.cs" />
     <Compile Include="Items\Weapons\RuneShard\TheAbstract.cs" />
     <Compile Include="Items\Weapons\RuneShard\TheOathblade.cs" />
@@ -668,7 +660,6 @@
     <Compile Include="Items\Weapons\StarSpectrum.cs" />
     <Compile Include="Items\Weapons\Terrawrath.cs" />
     <Compile Include="Items\Weapons\TheBlizzard.cs" />
-    <Compile Include="Items\Weapons\TheCrystalRift.cs" />
     <Compile Include="Items\Weapons\TheEthernalFury.cs" />
     <Compile Include="Items\Weapons\TheGalaxy.cs" />
     <Compile Include="Items\Weapons\TheInfernoofDecades.cs" />
@@ -684,7 +675,6 @@
     <Compile Include="Items\Weapons\TheReborn\TheVortexPulsar.cs" />
     <Compile Include="Items\Weapons\TheReborn\VoidPowerBeater.cs" />
     <Compile Include="Items\Weapons\TheSpewer.cs" />
-    <Compile Include="Items\Weapons\TheVitalPiercer.cs" />
     <Compile Include="Items\Weapons\TheWildBlade.cs" />
     <Compile Include="Items\Weapons\ThunderStrike.cs" />
     <Compile Include="Items\Weapons\TropicBlade.cs" />
@@ -2022,7 +2012,6 @@
     <Content Include="Items\Weapons\Accretion\GalactusKnives.png" />
     <Content Include="Items\Weapons\Accretion\GalactusKnivesM.png" />
     <Content Include="Items\Weapons\Accretion\TridentofDecimation.png" />
-    <Content Include="Items\Weapons\AcidDouser.png" />
     <Content Include="Items\Weapons\Acid\AcidBane.png" />
     <Content Include="Items\Weapons\Acid\AcidCannon.png" />
     <Content Include="Items\Weapons\Acid\AcidPike.png" />
@@ -2037,9 +2026,7 @@
     <Content Include="Items\Weapons\Ancient\AncientTome.png" />
     <Content Include="Items\Weapons\Ancient\VulturesTalon.png" />
     <Content Include="Items\Weapons\Aquarius.png" />
-    <Content Include="Items\Weapons\Archeon45.png" />
     <Content Include="Items\Weapons\ArcSprayer.png" />
-    <Content Include="Items\Weapons\AurelianRifle.png" />
     <Content Include="Items\Weapons\BattleGoblinStaff.png" />
     <Content Include="Items\Weapons\BladeofBalance.png" />
     <Content Include="Items\Weapons\BlastBuster.png" />
@@ -2144,7 +2131,6 @@
     <Content Include="Items\Weapons\JungleSporeStaff.png" />
     <Content Include="Items\Weapons\LeadSawblade.png" />
     <Content Include="Items\Weapons\LightningScepter.png" />
-    <Content Include="Items\Weapons\LivingAccord.png" />
     <Content Include="Items\Weapons\MechanicalMachinegun.png" />
     <Content Include="Items\Weapons\MementoMori.png" />
     <Content Include="Items\Weapons\MercuryScepter.png" />
@@ -2202,7 +2188,6 @@
     <Content Include="Items\Weapons\Planet\PlanetTorment.png" />
     <Content Include="Items\Weapons\PlatinumKunai.png" />
     <Content Include="Items\Weapons\PrismaticKnive.png" />
-    <Content Include="Items\Weapons\PrismaticWarhammer.png" />
     <Content Include="Items\Weapons\PutridStaff.png" />
     <Content Include="Items\Weapons\Quantum\QuantomDaybreak.png" />
     <Content Include="Items\Weapons\Quantum\QuantumBow.png" />
@@ -2217,7 +2202,6 @@
     <Content Include="Items\Weapons\Rift\ShadowRiftRifle.png" />
     <Content Include="Items\Weapons\Rift\ShadowRiftScythe.png" />
     <Content Include="Items\Weapons\Rift\ShadowRiftStaff.png" />
-    <Content Include="Items\Weapons\RottenSpire.png" />
     <Content Include="Items\Weapons\RuneShard\SoulPurge.png" />
     <Content Include="Items\Weapons\RuneShard\TheAbstract.png" />
     <Content Include="Items\Weapons\RuneShard\TheOathblade.png" />
@@ -2246,7 +2230,6 @@
     <Content Include="Items\Weapons\StarSpectrum.png" />
     <Content Include="Items\Weapons\Terrawrath.png" />
     <Content Include="Items\Weapons\TheBlizzard.png" />
-    <Content Include="Items\Weapons\TheCrystalRift.png" />
     <Content Include="Items\Weapons\TheEthernalFury.png" />
     <Content Include="Items\Weapons\TheGalaxy.png" />
     <Content Include="Items\Weapons\TheInfernoofDecades.png" />
@@ -2264,7 +2247,6 @@
     <Content Include="Items\Weapons\TheReborn\VoidPowerBeater.png" />
     <Content Include="Items\Weapons\TheSpewer.png" />
     <Content Include="Items\Weapons\TheThorn.png" />
-    <Content Include="Items\Weapons\TheVitalPiercer.png" />
     <Content Include="Items\Weapons\TheWildBlade.png" />
     <Content Include="Items\Weapons\ThunderStrike.png" />
     <Content Include="Items\Weapons\TideScourge.png" />
