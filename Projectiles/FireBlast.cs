@@ -56,26 +56,7 @@ namespace EnduriumMod.Projectiles
                 }
                 num = num143;
             }
-            if (projectile.alpha > 0)
-            {
-                projectile.alpha -= 10;
-                if (projectile.alpha < 0)
-                {
-                    projectile.alpha = 0;
-                }
-            }
-            if (projectile.alpha > 0)
-            {
-                projectile.alpha -= 50;
-            }
-            else
-            {
-                projectile.extraUpdates = 0;
-            }
-            if (projectile.alpha < 0)
-            {
-                projectile.alpha = 0;
-            }
+
             float num372 = projectile.position.X;
             float num373 = projectile.position.Y;
             float num374 = 100000f;

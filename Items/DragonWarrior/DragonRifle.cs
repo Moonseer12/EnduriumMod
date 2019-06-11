@@ -27,7 +27,7 @@ namespace EnduriumMod.Items.DragonWarrior
             item.UseSound = SoundID.Item36;
             item.autoReuse = true;
             item.shoot = 10;
-            item.shootSpeed = 30f;
+            item.shootSpeed = 15f;
             item.useAmmo = AmmoID.Bullet;
         }
         public override void AddRecipes()
@@ -54,13 +54,33 @@ namespace EnduriumMod.Items.DragonWarrior
             MyPlayer modPlayer = (MyPlayer)player.GetModPlayer(mod, "MyPlayer");
             if (modPlayer.DragonRifle >= 1f)
             {
-                for (int i = 0; i < 15; i++)
+                Main.PlaySound(0, (int)player.position.X, (int)player.position.Y, 10);
+
+
+                Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 80f;
+                if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
                 {
-                    Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y, 10);
-                    Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.ToRadians(45)); // 30 degree spread.                                                                                            // perturbedSpeed = perturbedSpeed * scale; 
-                    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+                    position += muzzleOffset;
                 }
-                modPlayer.DragonRifle = -0.25f;
+                for (int i = 0; i < 7; i++)
+                {
+                    Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(6));
+                    float scale = 1f - (Main.rand.NextFloat() * .3f);
+                    perturbedSpeed = perturbedSpeed * scale;
+                    int numgay = Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+                    Main.projectile[numgay].friendly = true;
+                    Main.projectile[numgay].hostile = false;
+                }
+                for (int g = 0; g < 4; g++)
+                {
+                    Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(12));
+                    float scale = 1f - (Main.rand.NextFloat() * .3f);
+                    perturbedSpeed = perturbedSpeed * scale;
+
+                    int numgay = Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("FireBlast"), damage, knockBack, player.whoAmI);
+                    Main.projectile[numgay].extraUpdates = 2;
+                }
+                modPlayer.DragonRifle = -0.5f;
             }
             return true; // return false because we don't want tmodloader to shoot projectile
         }

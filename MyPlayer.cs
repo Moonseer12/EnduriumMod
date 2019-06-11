@@ -76,6 +76,8 @@ namespace EnduriumMod
             bonusMana = int.Parse(bonusMagic);
         }
 
+        public bool DragonRifleHeld = false;
+
         public float DragonRifle = 0f;
 
         public bool Voidwalker = false;
@@ -1024,21 +1026,37 @@ namespace EnduriumMod
                     }
                 }
             }
+
             if (player.HeldItem.type == mod.ItemType("DragonRifle"))
             {
-                if (DragonRifle > 0f)
+                DragonRifleHeld = true;
+                if (DragonRifle > 0f && DragonRifle < 1f)
                 {
                     DragonRifle -= 0.01f;
                 }
+                if (DragonRifle <= 0f)
+                {
+                    DragonRifle += 0.01f;
+                }
+            }
+            else
+            {
+                DragonRifleHeld = false;
             }
         }
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
-            if (player.HeldItem.type == mod.ItemType("DragonRifle"))
+            if (DragonRifleHeld)
             {
-                DragonRifle += 0.18f;
+                if (DragonRifle > 0f)
+                {
+                    if (DragonRifle < 1f)
+                    {
+                        DragonRifle += 0.18f;
+                    }
+                }
             }
-                if (StormShield)
+            if (StormShield)
             {
                 StormShieldCharge += 0.01f;
             }

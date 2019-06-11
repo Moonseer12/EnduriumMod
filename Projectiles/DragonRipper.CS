@@ -85,7 +85,7 @@ namespace EnduriumMod.Projectiles
                         num628 *= 5f;
                         num629 *= 5f;
                         int num1111 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, num628, num629, mod.ProjectileType("FireBlast"), 20, 2f, Main.myPlayer, 0f, 0f);
-                        Main.projectile[num1111].extraUpdates = 10;
+                        Main.projectile[num1111].extraUpdates = 1;
                         Main.npc[num987].HitEffect(0, 1.0);
                     }
                 }
