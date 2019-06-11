@@ -117,10 +117,6 @@ namespace EnduriumMod.NPCs.TownNPCs
             shop.item[nextSlot].shopCustomPrice = new int?(50);  //this is the custom price, so this item will cost 20 custom Currency
             shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency             
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(mod.ItemType("BlessedClaymore"));      //this defines what item to sell .
-            shop.item[nextSlot].shopCustomPrice = new int?(50);  //this is the custom price, so this item will cost 20 custom Currency
-            shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency             
-            nextSlot++;
             shop.item[nextSlot].SetDefaults(mod.ItemType("HolyLight"));      //this defines what item to sell .
             shop.item[nextSlot].shopCustomPrice = new int?(50);  //this is the custom price, so this item will cost 20 custom Currency
             shop.item[nextSlot].shopSpecialCurrency = EnduriumMod.BronzeCoinID;  //this make so to use the CustomCurrency             
