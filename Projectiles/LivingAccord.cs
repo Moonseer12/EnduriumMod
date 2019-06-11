@@ -26,78 +26,11 @@ namespace EnduriumMod.Projectiles
             ProjectileID.Sets.YoyosMaximumRange[projectile.type] = 340f;
             ProjectileID.Sets.YoyosTopSpeed[projectile.type] = 19f;
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            int num3;
-            for (int num731 = 0; num731 < 7; num731 = num3 + 1)
-            {
-                int num732 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 229, 0f, 0f, 0, default(Color), 2.5f);
-                Main.dust[num732].noGravity = true;
-                Dust dust = Main.dust[num732];
-                dust.velocity *= 7f;
-                num732 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 89, 0f, 0f, 100, default(Color), 1.5f);
-                dust = Main.dust[num732];
-                dust.velocity *= 3f;
-                num3 = num731;
-            }
-        }
         float num001 = 0f;
         public override void AI()
         {
-            num001 += 0.4f;
-            if (num001 <= 50f)
-            {
-                if (Main.rand.Next(3) == 0)
-                {
-                    Vector2 vector119 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-                    Dust dust108 = Main.dust[Dust.NewDust(projectile.Center - vector119 * 30f, 0, 0, 89, 0f, 0f, 100, default(Color), 1f)];
-                    dust108.noGravity = true;
-                    dust108.position = projectile.Center - vector119 * (float)Main.rand.Next(10, 21);
-                    dust108.velocity = vector119.RotatedBy(1.5707963705062866, default(Vector2)) * 4f;
-                    dust108.scale = 0.7f + Main.rand.NextFloat();
-                    dust108.fadeIn = 1.2f;
-                }
-                if (Main.rand.Next(2) == 0)
-                {
-                    Vector2 vector120 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-                    Dust dust109 = Main.dust[Dust.NewDust(projectile.Center - vector120 * 30f, 0, 0, 229, 0f, 0f, 0, default(Color), 1f)];
-                    dust109.noGravity = true;
-                    dust109.position = projectile.Center - vector120 * 30f;
-                    dust109.velocity = vector120.RotatedBy(-1.5707963705062866, default(Vector2)) * 2f;
-                    dust109.scale = 0.7f + Main.rand.NextFloat();
-                    dust109.fadeIn = 1.2f;
-                }
-
-            }
-            if (num001 <= 90f)
-            {
-                projectile.rotation -= 0.157079637f;
-                if (Main.rand.Next(3) == 0)
-                {
-                    Vector2 vector124 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-                    Dust dust111 = Main.dust[Dust.NewDust(projectile.Center - vector124 * 30f, 0, 0, 229, 0f, 0f, 0, default(Color), 1f)];
-                    dust111.noGravity = true;
-                    dust111.position = projectile.Center - vector124 * (float)Main.rand.Next(10, 21);
-                    dust111.velocity = vector124.RotatedBy(1.5707963705062866, default(Vector2)) * 6f;
-                    dust111.scale = 0.7f + Main.rand.NextFloat();
-                    dust111.fadeIn = 1.2f;
-                    dust111.customData = projectile.Center;
-                }
-                if (Main.rand.Next(2) == 0)
-                {
-                    Vector2 vector125 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-                    Dust dust112 = Main.dust[Dust.NewDust(projectile.Center - vector125 * 30f, 0, 0, 89, 0f, 0f, 100, default(Color), 1f)];
-                    dust112.noGravity = true;
-                    dust112.position = projectile.Center - vector125 * 30f;
-                    dust112.velocity = vector125.RotatedBy(-1.5707963705062866, default(Vector2)) * 3f;
-                    dust112.scale = 0.7f + Main.rand.NextFloat();
-                    dust112.fadeIn = 1.2f;
-                    dust112.customData = projectile.Center;
-                }
-
-            }
-
-            if (num001 > 120f)
+            num001 += 1f;
+            if (num001 > 10f)
             {
                 projectile.rotation -= 0.104719758f;
                 int num3;
@@ -109,7 +42,7 @@ namespace EnduriumMod.Projectiles
                         Vector2 vector129 = Vector2.UnitY.RotatedByRandom(6.2831854820251465) * projectile.scale;
                         Dust dust114 = Main.dust[Dust.NewDust(projectile.Center - vector129 * 30f, 0, 0, 229, 0f, 0f, 0, default(Color), 1f)];
                         dust114.noGravity = true;
-                        dust114.position = projectile.Center - vector129 * (float)Main.rand.Next(10, 21);
+                        dust114.position = projectile.Center - vector129 * (float)Main.rand.Next(60, 81);
                         dust114.velocity = vector129.RotatedBy(1.5707963705062866, default(Vector2)) * 6f;
                         dust114.scale = 0.7f + Main.rand.NextFloat();
                         dust114.fadeIn = 1.2f;
@@ -118,9 +51,9 @@ namespace EnduriumMod.Projectiles
                     else if (num962 == 1)
                     {
                         Vector2 vector130 = Vector2.UnitY.RotatedByRandom(6.2831854820251465) * projectile.scale;
-                        Dust dust115 = Main.dust[Dust.NewDust(projectile.Center - vector130 * 30f, 0, 0, 89, 0f, 0f, 100, default(Color), 1f)];
+                        Dust dust115 = Main.dust[Dust.NewDust(projectile.Center - vector130 * 30f, 0, 0, 107, 0f, 0f, 100, default(Color), 1f)];
                         dust115.noGravity = true;
-                        dust115.position = projectile.Center - vector130 * 30f;
+                        dust115.position = projectile.Center - vector130 * 180f;
                         dust115.velocity = vector130.RotatedBy(-1.5707963705062866, default(Vector2)) * 3f;
                         dust115.scale = 0.7f + Main.rand.NextFloat();
                         dust115.fadeIn = 1.2f;
@@ -133,7 +66,7 @@ namespace EnduriumMod.Projectiles
             if (Main.rand.Next(3) == 0)
             {
                 Vector2 vector131 = Vector2.UnitY.RotatedByRandom(6.2831854820251465);
-                Dust dust116 = Main.dust[Dust.NewDust(projectile.Center - vector131 * 30f, 0, 0, 89, 0f, 0f, 100, default(Color), 1f)];
+                Dust dust116 = Main.dust[Dust.NewDust(projectile.Center - vector131 * 30f, 0, 0, 107, 0f, 0f, 100, default(Color), 1f)];
                 dust116.noGravity = true;
                 dust116.position = projectile.Center - vector131 * (float)Main.rand.Next(10, 21);
                 dust116.velocity = vector131.RotatedBy(1.5707963705062866, default(Vector2)) * 6f;

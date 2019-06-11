@@ -41,7 +41,7 @@ namespace EnduriumMod.Items.DragonWarrior
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Dragon Fire Cataclysm");
-            Tooltip.SetDefault("Casts fire magic\nThe longer the spell is active the more damage it does");
+            Tooltip.SetDefault("Creates orbiting fiery stars around the player\nProjectiles do more damage overtime");
         }
         public override bool CanUseItem(Player player)
         {
