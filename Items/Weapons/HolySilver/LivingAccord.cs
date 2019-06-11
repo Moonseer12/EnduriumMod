@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EnduriumMod.Items.Weapons
+namespace EnduriumMod.Items.Weapons.HolySilver
 {
     public class LivingAccord : ModItem
     {
@@ -25,7 +25,18 @@ namespace EnduriumMod.Items.Weapons
             item.noMelee = true;
             item.UseSound = SoundID.Item1;
         }
-
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(175, 20);
+            recipe.AddIngredient(117, 25);
+            recipe.AddIngredient(522, 12);
+            recipe.AddIngredient(null, ("StarCrystal"), 5);
+            recipe.AddIngredient(null, ("HolySilver"), 5);
+            recipe.AddTile(null, "SoulForge");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Living Accord");

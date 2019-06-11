@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace EnduriumMod.Items.Weapons
+namespace EnduriumMod.Items.Weapons.HolySilver
 {
     public class RottenSpire : ModItem
     {
@@ -37,10 +37,20 @@ namespace EnduriumMod.Items.Weapons
             Projectile.NewProjectile(Main.MouseWorld.X, Main.MouseWorld.Y - 70, 0f, 0f, mod.ProjectileType("RottenFlame"), item.damage, item.knockBack, item.owner);
             return false;
         }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(522, 12);
+            recipe.AddIngredient(null, ("StarCrystal"), 5);
+            recipe.AddIngredient(null, ("HolySilver"), 5);
+            recipe.AddTile(null, "SoulForge");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Rotten Spire");
-            Tooltip.SetDefault("Creates a rotten explosion at the cursors position\nThe Explosion hits the enemy twice");
+            Tooltip.SetDefault("Creates a rotten flame at the cursors position\nThe Flame hits the enemy twice");
         }
     }
 }

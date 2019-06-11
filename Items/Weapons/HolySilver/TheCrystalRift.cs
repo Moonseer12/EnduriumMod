@@ -5,7 +5,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace EnduriumMod.Items.Weapons
+namespace EnduriumMod.Items.Weapons.HolySilver  
 {
     public class TheCrystalRift : ModItem
     {
@@ -28,6 +28,17 @@ namespace EnduriumMod.Items.Weapons
             item.autoReuse = true;
             item.shootSpeed = 32f;
 
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(502, 25);
+            recipe.AddIngredient(1225, 16);
+            recipe.AddIngredient(null, ("StarCrystal"), 5);
+            recipe.AddIngredient(null, ("HolySilver"), 5);
+            recipe.AddTile(null, "SoulForge");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
         public override Vector2? HoldoutOffset()
         {

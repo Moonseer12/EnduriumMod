@@ -5,14 +5,14 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EnduriumMod.Items.Weapons
+namespace EnduriumMod.Items.Weapons.HolySilver
 {
     public class Archeon45 : ModItem
     {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Archeon-45");
-            Tooltip.SetDefault("Releases the sounds of hell");
+            Tooltip.SetDefault("Fires red projectiles\nProperties of the projectiles might fluctuate");
         }
         public override void SetDefaults()
         {

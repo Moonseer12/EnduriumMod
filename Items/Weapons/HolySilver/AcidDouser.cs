@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EnduriumMod.Items.Weapons
+namespace EnduriumMod.Items.Weapons.HolySilver
 {
     public class AcidDouser : ModItem
     {

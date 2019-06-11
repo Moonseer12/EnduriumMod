@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EnduriumMod.Items.Weapons
+namespace EnduriumMod.Items.Weapons.HolySilver
 {
     public class TheVitalPiercer : ModItem
     {
@@ -34,6 +34,16 @@ namespace EnduriumMod.Items.Weapons
         {
             DisplayName.SetDefault("Vital Piercer");
             Tooltip.SetDefault("Shoots out a slow moving blast of lethal energy");
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(1332, 12);
+            recipe.AddIngredient(null, ("StarCrystal"), 5);
+            recipe.AddIngredient(null, ("HolySilver"), 5);
+            recipe.AddTile(null, "SoulForge");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

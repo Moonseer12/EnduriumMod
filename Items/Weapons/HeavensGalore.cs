@@ -31,7 +31,7 @@ namespace EnduriumMod.Items.Weapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Aerial Judgement");
-            Tooltip.SetDefault("When at full health does double damage");
+            Tooltip.SetDefault("When at full health this weapon does double damage");
         }
         public override void AddRecipes()
         {
