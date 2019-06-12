@@ -16,15 +16,15 @@ namespace EnduriumMod.Items.DragonWarrior
             item.ranged = true;
             item.width = 62;
             item.height = 26;
-            item.useTime = 11;
+            item.useTime = 12;
 
-            item.useAnimation = 11;
+            item.useAnimation = 12;
             item.useStyle = 5;
             item.noMelee = true; //so the item's animation doesn't do damage
             item.knockBack = 8f;
             item.value = 125000;
             item.rare = 8;
-            item.UseSound = SoundID.Item36;
+            item.UseSound = SoundID.Item11;
             item.autoReuse = true;
             item.shoot = 10;
             item.shootSpeed = 15f;
