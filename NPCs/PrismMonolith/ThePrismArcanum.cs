@@ -154,7 +154,7 @@ namespace EnduriumMod.NPCs.PrismMonolith
                 {
                     npc.ai[0] = 0;
                     npc.ai[1] = 0;
-                    if (Main.rand.Next(2) == 0)
+                    if (npc.ai[2] == 0)
                     {
                         npc.ai[3] = 1; // 5 projectiles in a line
                     }
@@ -228,15 +228,12 @@ namespace EnduriumMod.NPCs.PrismMonolith
                     }
                     npc.netUpdate = true;
                 }
-                if (npc.ai[1] >= 3)
+                if (npc.ai[1] >= 5)
                 {
                     npc.ai[3] = 3;
-                    npc.ai[2] = 0;
                     npc.ai[1] = 0;
                     npc.ai[0] = 0;
                 }
-                npc.ai[0] = 0;
-                npc.ai[1] += 1;
                 npc.netUpdate = true;
                 npc.velocity *= 0.9f;
                
@@ -255,7 +252,6 @@ namespace EnduriumMod.NPCs.PrismMonolith
                     {
                         npc.ai[3] = 4; // circel
                     }
-                    npc.ai[2] = 0;
                     npc.ai[1] = 0;
                     npc.ai[0] = 0;
                 }
@@ -270,7 +266,7 @@ namespace EnduriumMod.NPCs.PrismMonolith
                 if (npc.ai[1] == 5)
                 {
                     npc.ai[3] = 5;
-                    npc.ai[2] = 1;
+                    npc.ai[2] = 0;
                     npc.ai[0] = 0;
                     npc.ai[1] = 0;
                 }
@@ -292,7 +288,7 @@ namespace EnduriumMod.NPCs.PrismMonolith
             if (npc.ai[3] == 5)
             {
                 npc.ai[0] += 1f;
-                if (npc.ai[0] >= 60)
+                if (npc.ai[0] >= 80)
                 {
                     npc.ai[1] += 1;
                     npc.ai[0] = 0;
@@ -322,10 +318,10 @@ namespace EnduriumMod.NPCs.PrismMonolith
 
                     npc.netUpdate = true;
                 }
-                if (npc.ai[1] >= 5)
+                if (npc.ai[1] >= 3)
                 {
+                    npc.ai[2] = 1;
                     npc.ai[3] = 0;
-                    npc.ai[2] = 0;
                     npc.ai[1] = 0;
                     npc.ai[0] = 0;
                 }
@@ -337,7 +333,6 @@ namespace EnduriumMod.NPCs.PrismMonolith
                 npc.noGravity = true;
                 npc.noTileCollide = true;
                 npc.knockBackResist = 0f;
-                int num;
                 if (npc.localAI[0] == 0f)
                 {
                     npc.TargetClosest(true);

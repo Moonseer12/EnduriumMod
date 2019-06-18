@@ -22,7 +22,7 @@ namespace EnduriumMod.Items.HollowWarlock
             item.width = 32;
             item.height = 32;
             item.rare = -12;
-            bossBagNPC = mod.NPCType("HollowMage");
+            bossBagNPC = mod.NPCType("TheKeeperofHollow2");
             item.expert = true;
         }
         public override bool CanRightClick()
@@ -31,10 +31,12 @@ namespace EnduriumMod.Items.HollowWarlock
         }
 
         public override void OpenBossBag(Player player)
-        {
+        { // StormSword TheNightfall GemofHollow StarFlowerStaff FrostSlash GemofHollow ShardofNight
             player.TryGettingDevArmor();
             player.TryGettingDevArmor();
-            int choice = Main.rand.Next(5);
+            player.QuickSpawnItem(mod.ItemType("GemofHollow"), Main.rand.Next(15, 25));
+            player.QuickSpawnItem(mod.ItemType("ShardofNight"));
+            int choice = Main.rand.Next(4);
             if (choice == 0)
             {
                 player.QuickSpawnItem(mod.ItemType("StormSword"));
@@ -47,22 +49,13 @@ namespace EnduriumMod.Items.HollowWarlock
 
             if (choice == 2)
             {
-                player.QuickSpawnItem(mod.ItemType("GemofHollow"), Main.rand.Next(12, 28));
-            }
-            if (choice == 3)
-            {
                 player.QuickSpawnItem(mod.ItemType("StarFlowerStaff"));
             }
-            if (choice == 4)
+
+            if (choice == 3)
             {
                 player.QuickSpawnItem(mod.ItemType("FrostSlash"));
             }
-            if (Main.rand.Next(3) == 0)
-            {
-                player.QuickSpawnItem(mod.ItemType("GemofHollow"), Main.rand.Next(4, 12));
-            }
-            player.QuickSpawnItem(mod.ItemType("ShardofNight"));
-            player.QuickSpawnItem(mod.ItemType("GemofHollow"), Main.rand.Next(12, 28));
         }
     }
 }

@@ -25,7 +25,7 @@ namespace EnduriumMod.NPCs.PrismMonolith
         }
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plague Energy");
+            DisplayName.SetDefault("Ice Fall");
         }
         public override void AI()
         {

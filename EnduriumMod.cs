@@ -82,7 +82,7 @@ namespace EnduriumMod
             if (bossChecklist != null)
             {
                 bossChecklist.Call("AddBossWithInfo", "The Earth Elemental", 6.4f, (Func<bool>)(() => EnduriumWorld.downedBio), "Use a [i:" + this.ItemType("SuspiciousLookingCrystal") + "] In the jungle biome at day");
-                bossChecklist.Call("AddBossWithInfo", "Keeper of Hollow", 8.2f, (Func<bool>)(() => EnduriumWorld.downedHollow), "Use a [i:" + this.ItemType("SigilofHollow") + "] In the hallow biome");
+                bossChecklist.Call("AddBossWithInfo", "Keeper of Hollow", 8.2f, (Func<bool>)(() => EnduriumWorld.downedHollow), "Use a [i:" + this.ItemType("SigilofHollow") + "] In the hallowed biome");
                 bossChecklist.Call("AddBossWithInfo", "The Prism Arcanum", 5f, (Func<bool>)(() => EnduriumWorld.downedPrismArcanum), "Use a [i:" + this.ItemType("FrozenMonolith") + "] In the ice biome during night time");
                 bossChecklist.Call("AddBossWithInfo", "Tyrant of Bloom", 2.8f, (Func<bool>)(() => EnduriumWorld.downedBloom), "Use [i:" + this.ItemType("TheBloomingFire") + "] Anywhere during day time");
                 bossChecklist.Call("AddMiniBossWithInfo", "Bloodlight Shaman", 1.5f, (Func<bool>)(() => EnduriumWorld.downedPhantasmShaman), "Occasionally spawns during the blood moon");
