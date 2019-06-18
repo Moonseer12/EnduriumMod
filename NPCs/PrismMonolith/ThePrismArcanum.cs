@@ -73,7 +73,6 @@ namespace EnduriumMod.NPCs.PrismMonolith
                 }
             }
         }
-        float IceFall = 0f;
         public override void AI()
         {
             Player player = Main.player[npc.target];
@@ -84,36 +83,6 @@ namespace EnduriumMod.NPCs.PrismMonolith
             else
             {
                 npc.spriteDirection = -1;
-            }
-            if (IceFall >= 1f)
-            {
-                IceFall += 1f;
-            }
-            if (IceFall >= 140f)
-            {
-                if (Main.rand.Next(90) == 0)
-                {
-                    IceFall = 2f;
-                    int num414 = (int)(player.position.X);
-                    int num415 = (int)(player.position.Y - 900);
-                    int velocityChoice = Main.rand.Next(4);
-                    if (velocityChoice == 0)
-                    {
-                        Projectile.NewProjectile((float)num414, (float)num415, 3f, 0f, mod.ProjectileType("IceFall"), 24, 0f, Main.myPlayer, 0f, 0f);
-                    }
-                    if (velocityChoice == 1)
-                    {
-                        Projectile.NewProjectile((float)num414, (float)num415, 6f, 0f, mod.ProjectileType("IceFall"), 24, 0f, Main.myPlayer, 0f, 0f);
-                    }
-                    if (velocityChoice == 2)
-                    {
-                        Projectile.NewProjectile((float)num414, (float)num415, -3f, 0f, mod.ProjectileType("IceFall"), 24, 0f, Main.myPlayer, 0f, 0f);
-                    }
-                    if (velocityChoice == 3)
-                    {
-                        Projectile.NewProjectile((float)num414, (float)num415, -6f, 0f, mod.ProjectileType("IceFall"), 24, 0f, Main.myPlayer, 0f, 0f);
-                    }
-                }
             }
             if (npc.ai[3] == 0)
             {
@@ -132,7 +101,7 @@ namespace EnduriumMod.NPCs.PrismMonolith
                 num792 *= num793;
                 npc.velocity.X = (npc.velocity.X * 100f + num791) / 101f;
                 npc.velocity.Y = (npc.velocity.Y * 100f + num792) / 101f;
-                if (npc.ai[0] >= 20f && npc.ai[0] <= 120f)
+                if (npc.ai[0] >= 60f && npc.ai[0] <= 160f)
                 {
                     int chance = 7;
                     if (Main.expertMode)
@@ -176,21 +145,22 @@ namespace EnduriumMod.NPCs.PrismMonolith
                         }
                     }
                 }
-                if (npc.ai[0] >= 160f)
+                if (npc.ai[0] >= 210f)
                 {
                     npc.ai[1] += 1;
-                    npc.ai[0] = 0f;
+                    npc.ai[0] = 20f;
                 }
                 if (npc.ai[1] == 3)
                 {
+                    npc.ai[0] = 0;
                     npc.ai[1] = 0;
-                    if ((double)npc.life < (double)npc.lifeMax * 0.75 && Main.netMode != 1 && Main.rand.Next(2) == 0)
+                    if (Main.rand.Next(2) == 0)
                     {
-                        npc.ai[3] = 1;
+                        npc.ai[3] = 1; // 5 projectiles in a line
                     }
                     else
                     {
-                        npc.ai[3] = 2;
+                        npc.ai[3] = 2; // cold dbomb
                     }
                 }
             }
@@ -201,17 +171,17 @@ namespace EnduriumMod.NPCs.PrismMonolith
                 {
                     npc.ai[0] += 0.5f;
                 }
-                    if (npc.ai[1] == 5)
+                if (npc.ai[1] == 5)
                 {
-                    npc.ai[3] = 2;
-                    npc.ai[0] = 0f;
+                    npc.ai[3] = 3;
+                    npc.ai[0] = 0;
                     npc.ai[1] = 0;
                 }
-                if (npc.ai[0] >= 100f)
+                if (npc.ai[0] >= 120f)
                 {
                     npc.ai[1] += 1;
                     npc.ai[0] = 0;
-                    float Speed = 8.5f;  // projectile speed
+                    float Speed = 7f;  // projectile speed
                     for (int num623 = 0; num623 < 15; num623++)
                     {
                         int num624 = Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, 132, 0f, 0f, 100, default(Color), 1.6f);
@@ -235,7 +205,7 @@ namespace EnduriumMod.NPCs.PrismMonolith
                     }
                     for (int num154 = 0; num154 < amount; num154 = num25 + 1)
                     {
-                        Speed += 2.8f;
+                        Speed += 2.5f;
                         int damage = 23;  // projectile damage
                         int type = mod.ProjectileType("Knoive");  //put your projectile
                         float rotation = (float)Math.Atan2(vector8.Y - (player.position.Y + (player.height * 0.5f)), vector8.X - (player.position.X + (player.width * 0.5f)));
@@ -246,26 +216,11 @@ namespace EnduriumMod.NPCs.PrismMonolith
             }
             if (npc.ai[3] == 2)
             {
-                npc.velocity *= 0.9f;
-                npc.ai[0] += 1;
-                if (npc.ai[0] >= 80)
-                {
-                    if (npc.ai[2] == 0)
-                    {
-                        npc.ai[3] = 4;
-                    }
-                    else
-                    {
-                        npc.ai[3] = 3;
-                    }
-                    npc.ai[0] = 0;
-                }
-            }
-            if (npc.ai[3] == 3)
-            {
                 npc.ai[0] += 1f;
-                if (npc.ai[0] == 25f || npc.ai[0] == 50f || npc.ai[0] == 75f)
+                if (npc.ai[0] >= 40)
                 {
+                    npc.ai[1] += 1;
+                    npc.ai[0] = 0;
                     Main.PlaySound(SoundID.Item8, npc.position);
                     if (Main.netMode != 1)
                     {
@@ -273,41 +228,55 @@ namespace EnduriumMod.NPCs.PrismMonolith
                     }
                     npc.netUpdate = true;
                 }
-                if (npc.ai[0] == 75f)
+                if (npc.ai[1] >= 3)
                 {
-                    if (npc.ai[1] == 3)
-                    {
-                        npc.ai[3] = 5;
-                        npc.ai[2] = 0;
-                        npc.ai[1] = 0;
-                        npc.ai[0] = 0;
-                    }
+                    npc.ai[3] = 3;
+                    npc.ai[2] = 0;
+                    npc.ai[1] = 0;
                     npc.ai[0] = 0;
-                    npc.ai[1] += 1;
-                    npc.netUpdate = true;
                 }
-                else
+                npc.ai[0] = 0;
+                npc.ai[1] += 1;
+                npc.netUpdate = true;
+                npc.velocity *= 0.9f;
+               
+            }
+            if (npc.ai[3] == 3)
+            {
+                npc.velocity *= 0.9f;
+                npc.ai[0] += 1;
+                if (npc.ai[0] >= 120)
                 {
-                    npc.velocity *= 0.986f;
+                    if (npc.ai[2] == 0)
+                    {
+                        npc.ai[3] = 5; //glaive
+                    }
+                    else
+                    {
+                        npc.ai[3] = 4; // circel
+                    }
+                    npc.ai[2] = 0;
+                    npc.ai[1] = 0;
+                    npc.ai[0] = 0;
                 }
             }
             if (npc.ai[3] == 4)
             {
                 if (Main.expertMode)
                 {
-                    npc.ai[0] += 0.4f;
+                    npc.ai[0] += 0.5f;
                 }
                 npc.ai[0] += 1f;
-                if (npc.ai[1] == 11)
+                if (npc.ai[1] == 5)
                 {
                     npc.ai[3] = 5;
                     npc.ai[2] = 1;
                     npc.ai[0] = 0;
                     npc.ai[1] = 0;
                 }
-                if (npc.ai[0] >= 42f)
+                npc.velocity *= 0.95f;
+                if (npc.ai[0] >= 75f)
                 {
-                    npc.velocity *= 0.95f;
                     npc.ai[1] += 1;
                     npc.ai[0] = 0f;
                     if (player.Center.X > npc.Center.X)
@@ -322,88 +291,48 @@ namespace EnduriumMod.NPCs.PrismMonolith
             }
             if (npc.ai[3] == 5)
             {
-                npc.velocity *= 0.9f;
-                npc.ai[0] += 1;
-                if (npc.ai[0] >= 80)
+                npc.ai[0] += 1f;
+                if (npc.ai[0] >= 60)
                 {
-                    if ((double)npc.life < (double)npc.lifeMax * 0.50 && Main.netMode != 1 && IceFall == 0f)
-                    {
-                        npc.ai[3] = 10;
-                    }
-                    else
-                    {
-                        if ((double)npc.life < (double)npc.lifeMax * 0.65 && Main.expertMode && Main.netMode != 1)
-                        {
-                            npc.ai[3] = 6;
-                        }
-                        else
-                        {
-                            npc.ai[3] = 0;
-                        }
-                        npc.ai[0] = 0;
-                    }
-                }
-            }
-            if (npc.ai[3] == 6)
-            {
-                npc.ai[0] += 1;
-                if (npc.ai[0] >= 20 && npc.ai[0] <= 1000)
-                {
-                    if (Main.rand.Next(20) == 0)
-                    {
-                        npc.ai[0] = 1000;
-                    }
-                }
-                Vector2 vec5 = Vector2.Normalize(player.Center - npc.Center);
-                if (vec5.HasNaNs())
-                {
-                    vec5 = new Vector2((float)npc.direction, 0f);
-                }
-                if (npc.ai[0] == 1073)
-                {
-                    npc.ai[0] = 980;
                     npc.ai[1] += 1;
+                    npc.ai[0] = 0;
+                    Main.PlaySound(SoundID.Item8, npc.position);
+                    if (Main.netMode != 1)
+                    {
+                        int num414 = (int)(player.position.X + Main.rand.Next(-100, 101));
+                        int num415 = (int)(player.position.Y - 900);
+                        int velocityChoice = Main.rand.Next(4);
+                        if (velocityChoice == 0)
+                        {
+                            Projectile.NewProjectile((float)num414, (float)num415, 3f, 0f, mod.ProjectileType("IceFall"), 24, 0f, Main.myPlayer, 0f, 0f);
+                        }
+                        if (velocityChoice == 1)
+                        {
+                            Projectile.NewProjectile((float)num414, (float)num415, 6f, 0f, mod.ProjectileType("IceFall"), 24, 0f, Main.myPlayer, 0f, 0f);
+                        }
+                        if (velocityChoice == 2)
+                        {
+                            Projectile.NewProjectile((float)num414, (float)num415, -3f, 0f, mod.ProjectileType("IceFall"), 24, 0f, Main.myPlayer, 0f, 0f);
+                        }
+                        if (velocityChoice == 3)
+                        {
+                            Projectile.NewProjectile((float)num414, (float)num415, -6f, 0f, mod.ProjectileType("IceFall"), 24, 0f, Main.myPlayer, 0f, 0f);
+                        }
+                    }
+
+                    npc.netUpdate = true;
                 }
-                if (npc.ai[1] == 2)
+                if (npc.ai[1] >= 5)
                 {
                     npc.ai[3] = 0;
+                    npc.ai[2] = 0;
                     npc.ai[1] = 0;
                     npc.ai[0] = 0;
                 }
-                if (npc.ai[0] == 1012 || npc.ai[0] == 1036 || npc.ai[0] == 1072)
-                {
-                    if (Main.netMode != 1)
-                    {
-                        vec5 = Vector2.Normalize(player.Center - npc.Center + player.velocity * 20f);
-                        if (vec5.HasNaNs())
-                        {
-                            vec5 = new Vector2((float)npc.direction, 0f);
-                        }
-                        Vector2 vector18 = npc.Center + new Vector2((float)(npc.direction * 30), 12f);
-                        float scaleFactor = 9f;
-                        float num50 = 0.251327425f;
-                        int num51 = 0;
-                        while ((float)num51 < 5f)
-                        {
-                            Vector2 vector19 = vec5 * scaleFactor;
-                            vector19 = vector19.RotatedBy((double)(num50 * (float)num51 - (1.2566371f - num50) / 2f), default(Vector2));
-                            float ai = (Main.rand.NextFloat() - 0.5f) * 0.3f * 6.28318548f / 60f;
-                            if (player.Center.X > npc.Center.X)
-                            {
-                                int num52 = NPC.NewNPC((int)(npc.position.X + 29 + (float)(npc.width / 2) + npc.velocity.X), (int)(npc.position.Y - 16 + (float)(npc.height / 2) + npc.velocity.Y), mod.NPCType("PrismSpell"), 0, 0f, 1f, vector19.X, vector19.Y, 255);
-                                Main.npc[num52].velocity = vector19;
-                            }
-                            else
-                            {
-                                int num52 = NPC.NewNPC((int)(npc.position.X - 29 + (float)(npc.width / 2) + npc.velocity.X), (int)(npc.position.Y - 16 + (float)(npc.height / 2) + npc.velocity.Y), mod.NPCType("PrismSpell"), 0, 0f, 1f, vector19.X, vector19.Y, 255);
-                                Main.npc[num52].velocity = vector19;
-                            }
-                            num51++;
-                        }
-                    }
-                }
+                npc.netUpdate = true;
             }
-            if (npc.ai[3] == 1 || npc.ai[3] == 6)
+            Main.NewText(npc.ai[3]);
+            if (npc.ai[3] == 1 || npc.ai[3] == 5)
             {
                 npc.noGravity = true;
                 npc.noTileCollide = true;
@@ -502,17 +431,6 @@ namespace EnduriumMod.NPCs.PrismMonolith
                         npc.localAI[0] = 0f;
                         npc.localAI[1] = (float)npc.direction;
                     }
-                }
-            }
-            if (npc.ai[3] == 10)
-            {
-                npc.velocity *= 0.9f;
-                npc.ai[0] += 1;
-                if (npc.ai[0] >= 120)
-                {
-                    IceFall = 1f;
-                    npc.ai[3] = 5;
-                    npc.ai[0] = 0;
                 }
             }
                 npc.dontTakeDamage = false;

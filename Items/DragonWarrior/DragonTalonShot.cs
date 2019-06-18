@@ -47,7 +47,7 @@ namespace EnduriumMod.Items.DragonWarrior
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Dragon Talon Shot");
-            Tooltip.SetDefault("Every other shot fire energy is fired");
+            Tooltip.SetDefault("Every other a piercing projectilee is fired");
         }
         public int Skiddadle = 0;
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
@@ -57,7 +57,7 @@ namespace EnduriumMod.Items.DragonWarrior
             {
                 Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("DragonTalon"), damage, knockBack, player.whoAmI, 1.25f, 1.25f); //This is spawning a projectile of type FrostburnArrow using the original stats
                 Skiddadle = 0;
-                return false; //Makes sure to not fire the original projectile
+                return true; //Makes sure to not fire the original projectile
             }
             return true;
         }
