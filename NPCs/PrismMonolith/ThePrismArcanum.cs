@@ -171,7 +171,7 @@ namespace EnduriumMod.NPCs.PrismMonolith
                 {
                     npc.ai[0] += 0.5f;
                 }
-                if (npc.ai[1] == 5)
+                if (npc.ai[1] >= 5)
                 {
                     npc.ai[3] = 3;
                     npc.ai[0] = 0;
