@@ -88,6 +88,8 @@ namespace EnduriumMod.NPCs.TheScourge
         float movementCAPX = 11f;
         float movementCAPY = 14f;
 
+        float numberProjectiles = 28; // 3, 4, or 5 shots
+        int i = 0;
         public override void AI()
         {
             Player player = Main.player[npc.target];
@@ -149,50 +151,26 @@ namespace EnduriumMod.NPCs.TheScourge
                 npc.ai[1] += 1f;
                 if (npc.ai[0] >= 340)
                 {
-                    npc.velocity *= 0.8f;
+                    npc.velocity *= 0.4f;
                 }
                 else
                 {
-                    if (npc.ai[2] >= 0 && npc.ai[2] < 4 || npc.ai[2] >= 8 && npc.ai[2] < 12)
+
+                    if (npc.ai[1] >= 40)
                     {
-                        if (npc.ai[1] >= 60)
-                        {
-
-                            Main.PlaySound(SoundID.Item17, npc.position);
-                            float Speed = 12f;  // projectile speed
-                            Vector2 vector8 = new Vector2(npc.position.X + (npc.width / 4), npc.position.Y + (npc.height / 4));
-                            int damage = 20;  // projectile damage
-                            int type = mod.ProjectileType("ScourgeBoltTiny");  //put your projectile
-                            float rotation = (float)Math.Atan2(vector8.Y - (player.position.Y + (player.height * 0.5f)), vector8.X - (player.position.X + (player.width * 0.5f)));
-                            int num54 = Projectile.NewProjectile(vector8.X, vector8.Y, (float)((Math.Cos(rotation) * Speed) * -1), (float)((Math.Sin(rotation) * Speed) * -1), type, damage, 0f, Main.myPlayer);
-                            npc.netUpdate = true;
-
-                            npc.ai[1] = 0f;
-                            npc.ai[2] += 1f;
-
-                        }
+                        Main.PlaySound(SoundID.Item17, npc.position);
+                        float Speed = 12f;  // projectile speed
+                        Vector2 vector8 = new Vector2(npc.position.X + (npc.width / 4), npc.position.Y + (npc.height / 4));
+                        int damage = 20;  // projectile damage
+                        int type = mod.ProjectileType("ScourgeBoltTiny");  //put your projectile
+                        float rotation = (float)Math.Atan2(vector8.Y - (player.position.Y + (player.height * 0.5f)), vector8.X - (player.position.X + (player.width * 0.5f)));
+                        int num54 = Projectile.NewProjectile(vector8.X, vector8.Y, (float)((Math.Cos(rotation) * Speed) * -1), (float)((Math.Sin(rotation) * Speed) * -1), type, damage, 0f, Main.myPlayer);
+                        npc.netUpdate = true;
+                        npc.ai[1] = 0f;
+                        npc.ai[2] += 1f;
                     }
 
-                    if (npc.ai[2] >= 4 && npc.ai[2] < 8 || npc.ai[2] >= 12 && npc.ai[2] < 16)
-                    {
-                        if (npc.ai[1] >= 60)
-                        {
-
-                            Main.PlaySound(SoundID.Item17, npc.position);
-                            float Speed = 12f;  // projectile speed
-                            Vector2 vector8 = new Vector2(npc.position.X + (npc.width / 4), npc.position.Y + (npc.height / 4));
-                            int damage = 20;  // projectile damage
-                            int type = mod.ProjectileType("ScourgeBolt");  //put your projectile
-                            float rotation = (float)Math.Atan2(vector8.Y - (player.position.Y + (player.height * 0.5f)), vector8.X - (player.position.X + (player.width * 0.5f)));
-                            int num54 = Projectile.NewProjectile(vector8.X, vector8.Y, (float)((Math.Cos(rotation) * Speed) * -1), (float)((Math.Sin(rotation) * Speed) * -1), type, damage, 0f, Main.myPlayer);
-                            npc.netUpdate = true;
-
-                            npc.ai[1] = 0f;
-                            npc.ai[2] += 1f;
-
-                        }
-                    }
-                    if (npc.ai[2] >= 16)
+                    if (npc.ai[2] >= 10)
                     {
                         npc.ai[0] = 0f;
                         npc.ai[1] = 0f;
@@ -204,7 +182,7 @@ namespace EnduriumMod.NPCs.TheScourge
                 {
                     npc.ai[0] = 0f;
                     npc.ai[1] = Main.rand.Next(1, 2);
-                    npc.ai[3] = 5;
+                    npc.ai[3] = 6;
                 }
             } //normal shit
 
@@ -233,6 +211,7 @@ namespace EnduriumMod.NPCs.TheScourge
                 npc.ai[0] += 1f;
                 if (npc.ai[0] >= 80)
                 {
+                    npc.ai[2] = 0;
                     npc.ai[0] = 0;
                     npc.ai[1] = Main.rand.Next(4, 5);
                     npc.ai[3] = 6;
@@ -263,20 +242,25 @@ namespace EnduriumMod.NPCs.TheScourge
                 npc.ai[0] += 1f;
                 if (npc.ai[0] == 150)
                 {
-                    float numberProjectiles = 28; // 3, 4, or 5 shots
                     float rotation = MathHelper.ToRadians(360);
-
-                    for (int i = 0; i < numberProjectiles; i++)
+                    if (i <= numberProjectiles)
                     {
-                        Vector2 perturbedSpeed = new Vector2(5f, 5f).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("ScourgeBoltTiny"), npc.damage, 1f, Main.myPlayer);
+                        i += 1;
+                        if (npc.ai[2] >= 10)
+                        {
+                            npc.ai[2] = 0;
+                            Vector2 perturbedSpeed = new Vector2(5f, 5f).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
+                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, mod.ProjectileType("ScourgeBoltTiny"), npc.damage, 1f, Main.myPlayer);
 
-                        Vector2 perturbedSpeed2 = new Vector2(15f, 15f).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, perturbedSpeed2.X, perturbedSpeed2.Y, mod.ProjectileType("ScourgeBoltTiny"), npc.damage, 1f, Main.myPlayer);
+                            Vector2 perturbedSpeed2 = new Vector2(15f, 15f).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
+                            Projectile.NewProjectile(npc.Center.X, npc.Center.Y, perturbedSpeed2.X, perturbedSpeed2.Y, mod.ProjectileType("ScourgeBoltTiny"), npc.damage, 1f, Main.myPlayer);
+                        }
                     }
                 }
                 if (npc.ai[0] >= 180) //summons homing projectiles
                 {
+                    i = 0;
+                    numberProjectiles = 28;
                     npc.ai[0] = 0;
                     npc.ai[1] = 0;
                     npc.ai[2] = 0;
