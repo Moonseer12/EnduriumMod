@@ -30,8 +30,8 @@ namespace EnduriumMod.Items.Weapons
         }
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aerial Judgement");
-            Tooltip.SetDefault("When at full health this weapon does double damage");
+            DisplayName.SetDefault("Heaven's Assault");
+            Tooltip.SetDefault("Deals double damage while at full health");
         }
         public override void AddRecipes()
         {
@@ -40,7 +40,7 @@ namespace EnduriumMod.Items.Weapons
             //recipe.AddIngredient(null, ("GrailKatana"));
             recipe.AddIngredient(ItemID.SoulofLight, 15);
             recipe.AddIngredient(ItemID.CrystalShard, 15);
-            recipe.AddIngredient(null, ("GemofHollow"), 12);
+            recipe.AddIngredient(null, ("GleamingCrag"), 12);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();

@@ -19,21 +19,10 @@ namespace EnduriumMod.Items
             item.value = Terraria.Item.sellPrice(0, 0, 5, 0);
             item.rare = 6;
         }
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.SoulofNight, 2);
-            recipe.AddIngredient(ItemID.SoulofLight, 2);
-            recipe.AddIngredient(ItemID.CrystalShard, 2);
-            recipe.AddIngredient(null, ("GemofHollow"), 2);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 4);
-            recipe.AddRecipe();
-        }
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gleaming Crag");
-            Tooltip.SetDefault("'Our powers, combined'");
+            Tooltip.SetDefault("'Contains Energy from the keeper of hollow'");
         }
     }
 }

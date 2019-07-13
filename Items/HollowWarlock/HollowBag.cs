@@ -31,10 +31,10 @@ namespace EnduriumMod.Items.HollowWarlock
         }
 
         public override void OpenBossBag(Player player)
-        { // StormSword TheNightfall GemofHollow StarFlowerStaff FrostSlash GemofHollow ShardofNight
+        {
             player.TryGettingDevArmor();
             player.TryGettingDevArmor();
-            player.QuickSpawnItem(mod.ItemType("GemofHollow"), Main.rand.Next(15, 25));
+            player.QuickSpawnItem(mod.ItemType("GleamingCrag"), Main.rand.Next(15, 25));
             player.QuickSpawnItem(mod.ItemType("ShardofNight"));
             int choice = Main.rand.Next(4);
             if (choice == 0)

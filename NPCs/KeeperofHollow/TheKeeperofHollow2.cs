@@ -91,25 +91,7 @@ namespace EnduriumMod.NPCs.KeeperofHollow
             }
             else
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GemofHollow"), Main.rand.Next(12, 28));
-
-                int itemChoice = Main.rand.Next(4);
-                if (itemChoice == 0)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("TheNightfall"));
-                }
-                else if (itemChoice == 1)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StormSword"));
-                }
-                else if (itemChoice == 2)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarFlowerStaff"));
-                }
-                else if (itemChoice == 3)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrostSlash"));
-                }
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("GleamingCrag"), Main.rand.Next(12, 28));
             }
         }
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)

@@ -220,7 +220,10 @@ public class EnduriumWorld : ModWorld
                 {
                     num2 = (WorldGen.dungeonX > Main.spawnTileX) ? (Main.spawnTileX + 110) : (Main.spawnTileX - 110);
                 }
-            
+                if (num3 > (int)Main.worldSurface - 200)
+                {
+                    num3 = (int)Main.worldSurface - 200;
+                }
                 if (num3 < (int)Main.worldSurface - 50)
                 {
                     num3 = Raycast(num2, (int)Main.worldSurface - 100) + 260;

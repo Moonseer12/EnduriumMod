@@ -74,7 +74,7 @@ namespace EnduriumMod.Items.Weapons
             recipe.AddIngredient(ItemID.SkyFracture);
             recipe.AddIngredient(ItemID.SoulofLight, 15);
             recipe.AddIngredient(ItemID.CrystalShard, 15);
-            recipe.AddIngredient(null, ("GemofHollow"), 12);
+            recipe.AddIngredient(null, ("GleamingCrag"), 12);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();

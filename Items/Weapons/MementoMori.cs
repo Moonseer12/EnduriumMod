@@ -38,7 +38,7 @@ namespace EnduriumMod.Items.Weapons
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.SoulofNight, 15);
             recipe.AddIngredient(ItemID.CrystalShard, 15);
-            recipe.AddIngredient(null, ("GemofHollow"), 20);
+            recipe.AddIngredient(null, ("GleamingCrag"), 20);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
