@@ -19,7 +19,7 @@ namespace EnduriumMod.NPCs.KeeperofHollow
             projectile.height = 14;
             projectile.aiStyle = -1;
             projectile.hostile = true;
-            projectile.timeLeft = 600;
+            projectile.timeLeft = 620;
             projectile.alpha = 180;
             aiType = ProjectileID.Bullet;
             projectile.tileCollide = false;
@@ -57,10 +57,6 @@ namespace EnduriumMod.NPCs.KeeperofHollow
                 Main.dust[num624].velocity *= 4f;
             }
         }
-        public override bool CanHitPlayer(Player target)
-        {
-            return false;
-        }
         public override void AI()
         {
             int num4324;
@@ -85,7 +81,7 @@ namespace EnduriumMod.NPCs.KeeperofHollow
             projectile.ai[1] += 1;
             if (projectile.ai[1] <= 20)
             {
-                projectile.velocity *= 1.02f;
+                projectile.velocity *= 1.01f;
             }
         }
     }

@@ -28,7 +28,7 @@ namespace EnduriumMod.Items.Placeable
 			item.useStyle = 1;
 			item.consumable = true;
 			item.value = 2000;
-			item.createTile = mod.TileType("AncientTotem");
+			item.createTile = mod.TileType("SkyLamentChest");
 		}
 
 		public override void AddRecipes()
