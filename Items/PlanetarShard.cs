@@ -19,7 +19,6 @@ namespace EnduriumMod.Items
             item.value = Terraria.Item.sellPrice(0, 1, 0, 0);
             item.rare = 8;
             item.value = Terraria.Item.buyPrice(0, 0, 5, 0);
-            item.createTile = mod.TileType("PlanetarShard"); //put your CustomBlock Tile name
         }
 
         public override void SetStaticDefaults()

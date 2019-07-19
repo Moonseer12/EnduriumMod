@@ -327,7 +327,6 @@ namespace EnduriumMod.NPCs.PrismMonolith
                 }
                 npc.netUpdate = true;
             }
-            Main.NewText(npc.ai[3]);
             if (npc.ai[3] == 1 || npc.ai[3] == 5)
             {
                 npc.noGravity = true;

@@ -39,12 +39,7 @@ namespace EnduriumMod.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(mod.BuffType("Shiver"), 699);
-        }
-        public override void AI()
-        {
-            projectile.velocity.X *= 1.06f;
-            projectile.velocity.Y *= 1.06f;
+            target.AddBuff(mod.BuffType("Shiver"), 700);
         }
         public override void Kill(int timeLeft)
         {

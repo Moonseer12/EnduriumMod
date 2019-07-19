@@ -15,12 +15,12 @@ namespace EnduriumMod.Items.DragonWarrior.Shop
         }
         public override void SetDefaults()
         {
-            item.damage = 90;
+            item.damage = 60;
             item.ranged = true;
             item.width = 72;
             item.height = 32;
-            item.useAnimation = 50;
-            item.useTime = 25;
+            item.useAnimation = 16;
+            item.useTime = 8;
             item.reuseDelay = 5;
             item.useStyle = 5;
             item.noMelee = true;
@@ -28,7 +28,7 @@ namespace EnduriumMod.Items.DragonWarrior.Shop
             item.value = Terraria.Item.buyPrice(0, 40, 0, 0);
             item.rare = 9;
             item.UseSound = SoundID.Item11;
-            item.autoReuse = true;
+            item.autoReuse = false;
             item.shoot = 10;
             item.shootSpeed = 16f;
             item.useAmmo = AmmoID.Bullet;
