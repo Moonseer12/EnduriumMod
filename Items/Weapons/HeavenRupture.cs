@@ -48,6 +48,7 @@ namespace EnduriumMod.Items.Weapons
             float f = Main.rand.NextFloat() * 6.28318548f;
             float value8 = 20f;
             float value9 = 60f;
+
             Vector2 vector26 = position + f.ToRotationVector2() * MathHelper.Lerp(value8, value9, Main.rand.NextFloat());
             int num2;
             for (int num209 = 0; num209 < 50; num209 = num2 + 1)
@@ -61,7 +62,7 @@ namespace EnduriumMod.Items.Weapons
                 num2 = num209;
             }
             Vector2 mouseWorld = Main.MouseWorld;
-            Vector2 vector27 = mouseWorld - vector26;
+            Vector2 vector27 = Main.MouseWorld - vector26;
             Vector2 vector28 = new Vector2(num82, num83).SafeNormalize(Vector2.UnitY) * num76;
             vector27 = vector27.SafeNormalize(vector28) * num76;
             vector27 = Vector2.Lerp(vector27, vector28, 0.25f);
