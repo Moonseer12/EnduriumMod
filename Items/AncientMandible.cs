@@ -9,7 +9,7 @@ namespace EnduriumMod.Items
         {
 
             item.width = 16;
-            item.height = 32;
+            item.height = 16;
             item.maxStack = 999;
             item.value = Terraria.Item.sellPrice(0, 0, 5, 0);
             item.rare = 1;
