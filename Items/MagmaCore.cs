@@ -1,8 +1,4 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,8 +9,8 @@ namespace EnduriumMod.Items
         public override void SetDefaults()
         {
 
-            item.width = 28;
-            item.height = 22;
+            item.width = 14;
+            item.height = 14;
             item.maxStack = 99;
             item.value = Terraria.Item.sellPrice(0, 0, 33, 0);
             item.rare = 5;
@@ -23,7 +19,7 @@ namespace EnduriumMod.Items
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Magma Crystal");
-            Tooltip.SetDefault("'Flamey'");
+            Tooltip.SetDefault("'A crystal of solidified magma'\n'These crystals are fed upon by Core Trenchers, who search for these to sustain themselves'");
         }
     }
 }
